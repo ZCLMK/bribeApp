@@ -13,6 +13,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 gem 'devise'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 #-----------------------------
 
 # Use Puma as the app server

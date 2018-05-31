@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+4.times do 
+    Event.create!(title: Faker::Job.field, description: 'description here ' , address: Faker::Address.full_address, date: DateTime.new(2018, rand(12), rand(28), rand(23), rand(0...60), rand(0...60)), creator_id: 4)
+end

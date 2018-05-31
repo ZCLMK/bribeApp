@@ -1,0 +1,12 @@
+<div class="event-header">
+    <h1><%= @event.title %></h1>
+    <p><%= @event.date %></p>
+    <p><%= @event.address %></p>
+    <p><%= @event.creator.username %></p>
+</div>
+
+<div class="event-body">
+    <p>
+        <%= @event.description %>
+    </p>
+</div>
