@@ -21,17 +21,15 @@
     <% @events_recent.each do |event| %>
         
        <div class="col-sm-6 event">
+         <div class="event-details">
           <a href="event/<%=event.id%>"><%= event.title %></h2></a>
           <p> <%= event.date%></p>
-          
-          <p><%= event.description%> Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-          Inventore perferendis voluptatum excepturi, consequatur, recusandae, nulla provident 
-          hic eligendi quae eos, explicabo et iusto! Similique aliquam laborum quidem minima iusto!
-          Deserunt, similique, aliquid? Dolorem architecto magnam aspernatur odio reprehenderit 
-          quibusdam quas, unde vel obcaecati 
-          eaque possimus.
-          </p>
+          <p><%= event.description.truncate(450, separator: ' ')%></p>
           <p> Créé par <a href="/creator/<%=event.creator.id%>">"<%= event.creator.username %>"</p></a>
+         </div>
+         <div event-pic>
+           
+         </div>
        </div>
      
     <% end %>

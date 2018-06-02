@@ -3,7 +3,8 @@ class EventController < ApplicationController
   before_action :event_params, only:[:create]
   
   def index
-    @user = User.all
+    @users = User.all
+    @events = Event.all
   end
   
   def show
