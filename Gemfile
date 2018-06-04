@@ -17,7 +17,6 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'carrierwave', '>= 0.10.0'
 gem 'mini_magick', '>= 4.3'
 gem 'figaro'
-gem "fog-aws"
 gem "fog"
 
 #-----------------------------

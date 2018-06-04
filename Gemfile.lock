@@ -463,7 +463,6 @@ DEPENDENCIES
   faker!
   figaro
   fog
-  fog-aws
   guard (= 2.14.1)
   guard-minitest (= 2.4.6)
   jbuilder (~> 2.5)
