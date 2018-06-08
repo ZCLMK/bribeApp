@@ -1,0 +1,27 @@
+<div class="container">
+    <% @events.each do |event| %>
+              
+      <div class="col-lg-6 event">
+          <div class="event-details">
+                  <a href="/events/<%=event.id%>"><%= event.title %></h2></a>
+                    <p>Le <%= formatted_date(event.date)%> à <%= formatted_time(event.time)%> </p>
+               
+              <!-- Gestion de la longueur de la description (extrait si > 300 caractères) -->            
+                    <p><%= event.description.truncate(300, separator:'') %></p>
+              <!-- Gestion de la longueur de la descriptions - fin -->
+                     
+                    <p> Créé par <a href="/creator/<%=event.creator.id%>">"<%= event.creator.username %>"</p></a>
+                    
+            </div>
+
+            <!--IMAGE SI FOURNIE -->
+    
+            <div class="event-pic">
+              <% if has_image(event) %>
+                  <%= image_tag(event.image_url)%>
+            <% end %>
+            </div>
+      
+      </div>
+    <% end %>
+</div>

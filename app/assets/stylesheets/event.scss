@@ -1,12 +1,16 @@
 .event{
     margin-bottom: 2vh;
     padding:0px;
-    height: 35vh;
+    height: 40vh;
     display:flex;
+    justify-content: space-between;
     border:1px black solid;
+    overflow-y: hidden;
+    overflow-x: hidden;
+   
     .event-pic{
         width:30%;
-        min-width:150px;
+        min-width:200px;
         
         img{
             width:100%;
@@ -17,7 +21,6 @@
     .event-details{
         padding:5px;
         border:1px blue dotted;
-            width:70%;
         }
 }
 

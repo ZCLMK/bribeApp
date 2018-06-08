@@ -20,21 +20,24 @@
       <!-- Example row of columns -->
     <% @events_recent.each do |event| %>
         
-       <div class="col-sm-6 event">
+       <div class="col-lg-6 event">
          <div class="event-details">
-          <a href="event/<%=event.id%>"><%= event.title %></h2></a>
-          <p> <%= event.date%></p>
+         <p><a href="events/<%=event.id%>"><%=event.title%></a></p>
+          <p>Le <%= formatted_date(event.date)%> à  <%= formatted_time(event.time) %>
+          </p>
+          <p> <%= event.id%></p>
           <p><%= event.description.truncate(450, separator: ' ')%></p>
           <p> Créé par <a href="/creator/<%=event.creator.id%>">"<%= event.creator.username %>"</p></a>
          </div>
+         <% if has_image(event)%>
          <div event-pic>
-           
+           <p><%= image_tag  event.image_url %></p>
          </div>
+         <% end %>
        </div>
      
     <% end %>
       <hr>
-
       <footer>
         <p>&copy; 2016 Company, Inc.</p>
       </footer>

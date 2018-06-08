@@ -1,10 +1,10 @@
-class EventController < ApplicationController
-  before_action :find_event, only:[:show]
+class EventsController < ApplicationController
+  before_action :find_event, only:[:show, :subscribe]
   before_action :event_params, only:[:create]
   
   def index
     @users = User.all
-    @events = Event.all
+    @events = Event.order('date asc')
   end
   
   def show
@@ -29,8 +29,14 @@ class EventController < ApplicationController
   
   def creator 
     @creator = User.find(params[:id])
-    @events = Event.where(creator_id: @creator.id)
+    @events = Event.where(creator_id: @creator.id).order('date asc')
   end 
+
+  def subscribe
+    @event.attendees << current_user
+    current_user.attended_evts << @event
+    flash[:notice] = "Vous vous êtes bien inscrit(e) à #{@event.title }"
+  end
   
   private 
   
@@ -39,8 +45,9 @@ class EventController < ApplicationController
   end
   
   def event_params
-    params.require(:event).permit(:title, :description, :address, :date)
+    params.require(:event).permit(:title, :description, :address, :date, :time, :category_id)
   end
+
 
 end
 

@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   before_action :find_event, only: [:show]
   def index
+    @events = Event.all
     @events_recent = Event.limit(6).order('id desc')
     @user = User.all
   end

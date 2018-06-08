@@ -19,15 +19,31 @@
     <p><%= f.text_field(:title, size:50, required: true) %></p> 
    
     <p><%= f.label(:date)%></p>
-    <p><%= datetime_local_field(:event, :date, required: true) %></p>
-   
+    <p><%= f.date_field(:date,  min: Date.today, required: true) %></p>
+
+    <p><%= f.label(:heure)%></p>
+    <p><%=f.text_field(:time, type:"time") %></p>
+    
     <p><%= f.label(:adresse)%></p>
     <p><%= f.text_field(:address, size:50, required: true) %> </p>
     
     <p><%= f.label(:description)%></p>
     <p><%= f.text_area(:description, cols:60, rows:8, required: true)%></p>
     
+    <p>
+    <%= f.select(:category_id, options_for_select(
+    [
+      ['Concerts', 1],
+      ['Expos', 2],
+      ['Spectacles', 3],
+      ["Sport", 4],
+      ["Loisirs", 5],
+      ["Nature", 6]
+      ], 5)) %>
+      </p>
     <p><%= f.submit "Create" %></p>
+
 <% end %>
 
-<!-- Gérer les erreurs -->
+<!-- Gérer les erreurs
+  <input id="timepicker5" type="text" class="input-small"> -->

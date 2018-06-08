@@ -10,14 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_02_093044) do
+ActiveRecord::Schema.define(version: 2018_06_08_085757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attended_events_attendees", id: false, force: :cascade do |t|
-    t.bigint "attended_event_id", null: false
+  create_table "attended_evts_attendees", id: false, force: :cascade do |t|
     t.bigint "attendee_id", null: false
+    t.bigint "attended_evt_id", null: false
+    t.index ["attended_evt_id"], name: "index_attended_evts_attendees_on_attended_evt_id"
+    t.index ["attendee_id"], name: "index_attended_evts_attendees_on_attendee_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "events", force: :cascade do |t|
@@ -29,6 +37,15 @@ ActiveRecord::Schema.define(version: 2018_06_02_093044) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"
+    t.text "time"
+    t.integer "category_id"
+  end
+
+  create_table "events_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.index ["event_id"], name: "index_events_user_on_event_id"
+    t.index ["user_id"], name: "index_events_user_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

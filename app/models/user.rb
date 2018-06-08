@@ -5,8 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   attr_accessor :login
  has_many :created_events, class_name: "Event", foreign_key: "creator_id"
- has_and_belongs_to_many :attended_events,
-                          class_name:"Event"
+ has_and_belongs_to_many :attended_evts, class_name:"Event"
                           
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

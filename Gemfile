@@ -9,16 +9,19 @@ gem 'rails', '~> 5.2.0'
 
 # Use postgresql as the database for Active Record
 #-----------------------------
-gem 'pg', '>= 0.18', '< 2.0'
-gem 'bootstrap-sass', '~> 3.3.7'
+
+
 gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'pg', '>= 0.18', '< 2.0'
 gem 'devise'
-gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'faker'
 gem 'carrierwave', '>= 0.10.0'
 gem 'mini_magick', '>= 4.3'
 gem 'figaro'
 gem "fog"
-
+gem 'bootstrap-timepicker-rails', :require => 'bootstrap-timepicker-rails',
+                              :git => 'git://github.com/tispratik/bootstrap-timepicker-rails.git'
 #-----------------------------
 
 # Use Puma as the app server
@@ -73,10 +76,6 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'rails-controller-testing', '1.0.2'
-  gem 'minitest',                 '5.10.3'
-  gem 'minitest-reporters',       '1.1.14'
-  gem 'guard',                    '2.14.1'
-gem 'guard-minitest', '2.4.6'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

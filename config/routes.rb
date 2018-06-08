@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   
-  resources :event
-  get 'creator/:id' => 'event#creator'
+  resources :events
+  get 'creator/:id' => 'events#creator'
   devise_for :users
   get 'users/sign_out' => 'home#index'
-  get 'event/:id' => 'event#show'
+  get 'events/:id' => 'events#show'
+  post 'events/:id/subscribe' => 'events#subscribe'
 
   root 'home#index'
   

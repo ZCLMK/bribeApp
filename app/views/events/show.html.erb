@@ -1,0 +1,30 @@
+<div class="event-header">
+    <h1><%= @event.title %></h1>
+    <p>Le <%= formatted_date(@event.date)%> à  <%= formatted_time(@event.time) %>
+    <p><%= @event.address %></p>
+    
+    <% if has_image(@event)%>
+    <p><%= image_tag  @event.image_url %></p>
+    <p><%= @event.creator.username %></p>
+    <% end  %>
+</div>
+
+<div class="event-body">
+    <p>
+        <%= @event.description %>
+    </p>        
+</div>
+        
+        <% if user_signed_in?%> <!-- SIGNED in start-->      
+            <%if current_user.attended_evts.include?(@event) %>
+                <p>Vous êtes déja inscrit à cet évenement</p>
+           <%elsif current_user.id == @event.creator_id%>
+                <p>Vous êtes le créateur de l'évenement</p>
+            <%else%>
+             <%= button_to "S'inscrire", action: "subscribe" %>
+            <%end%>
+    <%end%><!-- SIGNED in end-->
+
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+     <% end %>
