@@ -14,7 +14,13 @@
        
     <%= render 'shared/header'%>
     <%= yield %>
+	 <%= render 'shared/footer'%>
 
+<!-- DEBUG ONLY -->
+	<% if user_signed_in?%>
+	<%= current_user.id  %>
+	<% end %>
+<!-- DEBUG ONLY -->
 
   </body>
 </html>

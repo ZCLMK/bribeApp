@@ -1,0 +1,57 @@
+<script>
+
+		let eventAddress = document.getElementById("event_address").innerText.split(" ").join('')
+		console.log(`${eventAddress} 2`)
+		let mymap
+		const geoUrlPartOne="https://maps.googleapis.com/maps/api/geocode/json?address="
+		const geoUrlPartTwo="&key="
+		const geoDynamicUrl = [geoUrlPartOne, eventAddress, geoUrlPartTwo,<%= ENV["MAPS_API_KEY"] %>].join('')
+		const  mapsUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAwgKiNBBxNes-LV3TVp3jL8dFjSYHMXhY&callback=initMap' 
+		let latitude = null
+		let longitude = null
+
+// API DE GEOLOCALISATION (eventAddress => coordonnées (lat, lng))		
+			fetch(geoDynamicUrl)
+			
+			.then(function(response) {
+			
+			console.log('geo start');
+			return response.json();
+
+			})
+			.then(function(myJson) {
+				latitude = myJson.results[0].geometry.location.lat
+				longitude = myJson.results[0].geometry.location.lng
+				console.log("geo end ", latitude , longitude)
+				//	console.log("latitude en " + typeof latitude  + "longitude en " +  typeof longitude);
+			})
+
+// API GOOGLE MAPS 
+			.then(function (){
+		
+				let scriptElt = document.createElement('script')
+				scriptElt.setAttribute("src", mapsUrl)
+				body = document.getElementsByTagName("body")[0]
+				body.appendChild(scriptElt)
+				console.log("script generated")
+		})
+
+	function initMap() {
+		
+				console.log(" initmap start" + latitude  )
+				const coordinates = {lat: latitude, lng: longitude};
+				
+				// CARTE
+				mymap = new google.maps.Map(document.getElementById('map'), {
+				zoom: 11,
+				center: coordinates
+				})
+				// MARKER
+				const marker = new google.maps.Marker({
+				position: coordinates,
+				map: mymap
+				});
+
+			}
+		</script>
+	

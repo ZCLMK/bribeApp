@@ -18,7 +18,3 @@
 //= require_tree .
 
 
-$(document).on ("turbolinks:load", function(){
-console.log('hello')
-$('body').addClass('to--red')
-})

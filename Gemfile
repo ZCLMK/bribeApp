@@ -4,13 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
 gem 'rails', '~> 5.2.0'
-#Jquery
 
 # Use postgresql as the database for Active Record
 #-----------------------------
 
-
+gem 'figaro'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -18,8 +18,7 @@ gem 'devise'
 gem 'faker'
 gem 'carrierwave', '>= 0.10.0'
 gem 'mini_magick', '>= 4.3'
-gem 'figaro'
-gem "fog"
+gem 'fog'
 gem 'bootstrap-timepicker-rails', :require => 'bootstrap-timepicker-rails',
                               :git => 'git://github.com/tispratik/bootstrap-timepicker-rails.git'
 #-----------------------------

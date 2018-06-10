@@ -1,7 +1,7 @@
 <div class="event-header">
     <h1><%= @event.title %></h1>
     <p>Le <%= formatted_date(@event.date)%> à  <%= formatted_time(@event.time) %>
-    <p><%= @event.address %></p>
+    <p id="event_address"><%= @event.address %></p>
     
     <% if has_image(@event)%>
     <p><%= image_tag  @event.image_url %></p>
@@ -25,6 +25,12 @@
             <%end%>
     <%end%><!-- SIGNED in end-->
 
+
       <% if flash[:notice] %>
         <div class="notice"><%= flash[:notice] %></div>
      <% end %>
+	 
+<!-------------------------------------------- MAP based on event.address -------------------------------------------------- -->
+	<div id="map"></div>
+	<%= render 'maps' %>
+

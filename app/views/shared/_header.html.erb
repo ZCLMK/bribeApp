@@ -21,32 +21,41 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catégorie <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Concerts</a></li>
-                  <li><a href="#">Expos</a></li>
-                  <li><a href="#">Spectacles</a></li>
-                  <li><a href="#">Sport</a></li>
-                  <li><a href="#">Loisirs</a></li>
-                  <li><a href="#">Nature</a></li>
+                  <li><a href="/events/category/1">Concerts</a></li>
+                  <li><a href="/events/category/2">Expos</a></li>
+                  <li><a href="/events/category/3">Spectacles</a></li>
+                  <li><a href="/events/category/4">Sport</a></li>
+                  <li><a href="/events/category/5">Loisirs</a></li>
+                  <li><a href="/events/category/6">Nature</a></li>
                 </ul>
              </li>
           </ul>
-  
-          
-           <ul class="nav navbar-nav navbar-right">
-           
-             <% if user_signed_in?%>
-             <%if  !current_user.avatar.file.nil?%>
-             <li class=nav-item>
-              <%=link_to image_tag(current_user.avatar.thumb.url,  size: "40"), edit_user_registration_path %>
-              </li>
-              <%else%>
-              <li class=nav-item>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <button href="#" class="dropdown-toggle avatar--drop" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+       <!--avatar dans dropdown-->            
+          <% if user_signed_in?%>
+            <%if  !current_user.avatar.file.nil?%>      
+                    <%=link_to image_tag(current_user.avatar.thumb.url,  size: "40"), edit_user_registration_path %>          
+            <%else%>       
                   <%=link_to image_tag("avatar_default",  size: "40"), edit_user_registration_path %>
-                </li>
-                <% end %>
-          <% end %>
-          </ul>
+            <% end %>
          
-        </div><!--/.nav-collapse -->
+        <!--avatar-->
+            </button>
+                <ul class="dropdown-menu">
+                
+                  <li><%= link_to  "Mes evenements" %></li>
+                  <li><%= link_to 'Editer mon profil', edit_user_registration_path %></li>             
+                  <li><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete%></a></li>
+             
+                </ul>
+             </li>
+      <% end %>
+     
+           
+         </div>
+       <!--/.nav-collapse -->
       </div>
     </nav>

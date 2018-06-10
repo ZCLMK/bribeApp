@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
-  before_action :find_event, only:[:show, :subscribe]
-  before_action :event_params, only:[:create]
+	skip_before_action :verify_authenticity_token
+
+  before_action :find_event, only:[:show, :subscribe, :edit,  :update]
+  before_action :event_params, only:[:create, :edit, :update]
   
   def index
     @users = User.all
@@ -13,7 +15,7 @@ class EventsController < ApplicationController
   def new 
     @event = Event.new
   end 
-  
+
   def create 
       @event = Event.new(event_params)
       @event.creator_id = current_user.id
@@ -26,10 +28,22 @@ class EventsController < ApplicationController
       end
     end
   end 
+
+    
+  def edit
+  end 
   
-  def creator 
-    @creator = User.find(params[:id])
-    @events = Event.where(creator_id: @creator.id).order('date asc')
+  def update
+    if @event.update(article_params)
+      redirect_to @event
+    else
+      render 'edit'
+    end
+  end
+
+  def user_events
+    @user = User.find(params[:id])
+    @events = Event.where(creator_id: @user.id).order('date asc')
   end 
 
   def subscribe
@@ -38,7 +52,12 @@ class EventsController < ApplicationController
     flash[:notice] = "Vous vous êtes bien inscrit(e) à #{@event.title }"
   end
   
-  private 
+  def category
+    @events = Event.where(category_id: params[:id])
+  end
+
+
+ private 		# ------------------------------------------- 
   
   def find_event 
     @event = Event.find(params[:id])
@@ -47,7 +66,6 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :description, :address, :date, :time, :category_id)
   end
-
-
 end
+
 

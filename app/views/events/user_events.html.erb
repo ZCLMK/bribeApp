@@ -1,10 +1,10 @@
 
 
 <div class="container">
+        <h1><%=@user.username%></h1>
+    <% if !@user.avatar.file.nil? %>
     
-    <% if !@creator.avatar.file.nil? %>
-        <h1><%=@creator.username%></h1>
-        <p><%=image_tag(@creator.avatar.thumb.url)%></p>
+        <p><%=image_tag(@user.avatar.thumb.url)%></p>
         <% else %>
          <p><%=image_tag("avatar_default.jpeg")%></p>
     <% end %>
