@@ -6,7 +6,7 @@
 		const geoUrlPartOne="https://maps.googleapis.com/maps/api/geocode/json?address="
 		const geoUrlPartTwo="&key="
 		const geoDynamicUrl = [geoUrlPartOne, eventAddress, geoUrlPartTwo,<%= ENV["MAPS_API_KEY"] %>].join('')
-		const  mapsUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAwgKiNBBxNes-LV3TVp3jL8dFjSYHMXhY&callback=initMap' 
+		const  mapsUrl = 'https://maps.googleapis.com/maps/api/js?key=<%= ENV["MAPS_API_KEY"] %>&callback=initMap' 
 		let latitude = null
 		let longitude = null
 
