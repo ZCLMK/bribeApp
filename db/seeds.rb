@@ -68,10 +68,10 @@ end
 # ["Nature", 6]
 
 
-# 6.times do |i|
-#     categories = ["Concerts", "Expos", "Spectacles", "Sport", "Loisirs", "Nature"]
-#     Category.create(title: categories[i])
-# end 
+6.times do |i|
+    categories = ["Concerts", "Expos", "Spectacles", "Sport", "Loisirs", "Nature"]
+    Category.create(title: categories[i])
+end 
 
 
 
