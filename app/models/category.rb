@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  has_many :events, optional: true
+  has_many :events
 end
