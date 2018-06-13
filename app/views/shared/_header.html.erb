@@ -1,5 +1,5 @@
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
           </button>
 
-          <%= link_to  "Evenements",  root_path, class: "navbar-brand" %>
+          <%= link_to  "Evenements",  events_path, class: "navbar-brand" %>
         </div>
 
 
@@ -34,8 +34,10 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <button href="#" class="dropdown-toggle avatar--drop" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
-       <!--avatar dans dropdown-->            
+       <!--avatar dans dropdown-->  
+
           <% if user_signed_in?%>
+						<span><%= current_user.username %></span>
             <%if  !current_user.avatar.file.nil?%>      
                     <%=link_to image_tag(current_user.avatar.thumb.url,  size: "40"), edit_user_registration_path %>          
             <%else%>       
@@ -46,7 +48,7 @@
             </button>
                 <ul class="dropdown-menu">
                 
-                  <li><%= link_to  "Mes evenements" %></li>
+                  <li> <a href="/users/<%= current_user.id %>/events"> Mes evenements</a></li>
                   <li><%= link_to 'Editer mon profil', edit_user_registration_path %></li>             
                   <li><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete%></a></li>
              

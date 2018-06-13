@@ -1,27 +1,107 @@
-.event{
-    margin-bottom: 2vh;
-    padding:0px;
-    height: 40vh;
-    display:flex;
-    justify-content: space-between;
-    border:1px black solid;
-    overflow-y: hidden;
-    overflow-x: hidden;
-   
-    .event-pic{
-        width:30%;
-        min-width:200px;
-        
-        img{
-            width:100%;
-            height:100%;
-            }
-        }
-    
-    .event-details{
-        padding:5px;
-        border:1px blue dotted;
-        }
+@import "./variables.scss";
+.flex--wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0vh 4vw;
+	.section--wrapper {
+		display: flex;
+		justify-content: center;
+		width: 100vw;
+		flex-wrap: wrap;
+		margin: 8px 0px;
+		background-color: $bg--yellow;
+	}
+	.section--title {
+		font: {
+			size: 2em;
+			color: $font--primary;
+		}
+	}
+	.section--head {
+		width: 100%;
+	}
 }
 
+.event {
+	margin: 10px 10px;
+	width: 100%;
+	height: 45vh;
+	margin-bottom: 2vh;
+	max-width: 400px;
+	min-width: 30vw;
+	flex-basis: 30vw;
+	/* wraps here*/
+	display: block;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	border-radius: 7px;
+	.event--pic {
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.event--details {
+		background-color: #fff;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 1em;
+		text-align: justify;
+		height: 45%;
+		line-height: 1.4em;
+		@include font-basics(1em, 200, $font--event--details)
+	}
+	.event--creator {
+		font: {
+			size: 1.1em;
+			color: $font--primary;
+		}
+	}
+	.event--title {
+		@include font-basics(1.35em, 150, $font--event--title)
+	}
+}
 
+@media all and (max-width: 480px) {
+	.event {
+		flex-basis: 100vw;
+		.event--details {
+			background-color: green;
+		}
+	}
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+	.event {
+		flex-basis: 42vw;
+		.event--details {
+			background-color: yellow;
+		}
+	}
+}
+
+/* iPads (portrait and landscape) ----------- */
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+	.event {
+		flex-basis: 42vw;
+		.event--details {
+			background-color: rgb(218, 69, 69);
+		}
+	}
+}
+
+/* Desktops and laptops ----------- */
+
+@media only screen and (min-width: 1224px) {}
+
+/* Large screens ----------- */
+
+@media only screen and (min-width: 1824px) {
+	/* Styles */
+}

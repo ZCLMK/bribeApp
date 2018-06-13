@@ -6,10 +6,15 @@ class EventsController < ApplicationController
   
   def index
     @users = User.all
-    @events = Event.order('date asc')
+		@events = Event.order('date asc')
+		@samedi = "16-06-2018".to_date
+		@dimanche =  "17-06-2018".to_date
+		@weekend = Event.where(:date => @samedi.beginning_of_day..@dimanche.end_of_day).limit(6)
+		@concerts = @events.where(category_id: 1).limit(3)
   end
   
   def show
+	@attendees  = @event.attendees 
   end
     
   def new 
@@ -43,13 +48,14 @@ class EventsController < ApplicationController
 
   def user_events
     @user = User.find(params[:id])
-    @events = Event.where(creator_id: @user.id).order('date asc')
+	@events = Event.where(creator_id: @user.id).order('date asc')
   end 
 
   def subscribe
     @event.attendees << current_user
     current_user.attended_evts << @event
-    flash[:notice] = "Vous vous êtes bien inscrit(e) à #{@event.title }"
+		flash[:notice] = "Vous vous êtes bien inscrit(e) à l'évenement \" #{@event.title } \""
+		redirect_to @event 
   end
   
   def category
@@ -64,7 +70,7 @@ class EventsController < ApplicationController
   end
   
   def event_params
-    params.require(:event).permit(:title, :description, :address, :date, :time, :category_id)
+    params.require(:event).permit(:title, :description, :address, :date, :time, :category_id, :image_url, :image,  :image_cache, :remove_image)
   end
 end
 

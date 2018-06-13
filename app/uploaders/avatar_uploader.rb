@@ -27,6 +27,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  def default_url(*args)
+	ActionController::Base.helpers.asset_path("fallback/" + ["avatar_default.jpeg"].compact.join('_'))
+  end
 
   # Create different versions of your uploaded files:
    version :thumb do

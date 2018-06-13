@@ -13,7 +13,7 @@
       <% @description = event.description.to_s %>
               
       <div class="event">
-          <div class="event-details">
+          <div class="event--details">
                   <a href="/events/<%=event.id%>"><%= event.title %></h2></a>
                     <p>Le <%= formatted_date(event.date)%> à  <%= formatted_time(event.time) %>
                
@@ -21,14 +21,23 @@
                     <p><%= @description.truncate(450, separator:' ') %></p>
               <!-- Gestion de la longueur de la descriptions - fin -->
                      </div>
-                <% if has_image(event)%>      
-                       <div class="event-pic">   
-                       
-                                <%= image_tag(event.image_url)%>
-                                <button>S'incrire</button>
-                    
-                     </div>
-                <% end %>
-                    </div>
-        <% end %>
-    </div>
+						<div class="event--pic">   
+              <% if has_image(event)%>      
+                      
+									<%= image_tag "#{event.imageurl}"%>
+                    <button>S'incrire</button>
+                   
+							<% elsif has_url(event)%>
+									<%= image_tag "#{event.imageurl}" %>
+            	
+							<% end %>
+            </div>
+				<!-- modifier l'évenement -->
+	
+				<% if current_user.id == event.creator_id%>
+					<a href="/events/<%= event.id %>/edit">Modifier l'évenement</a>
+				<% end %>
+	
+		</div>
+    <% end %>
+ </div>

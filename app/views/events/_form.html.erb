@@ -41,6 +41,16 @@
       ["Nature", 6]
       ], 5)) %>
       </p>
+
+	<p>	<%= f.label :image %>
+	<p>	<%= f.file_field :image %><br>
+	<p>	<%= f.hidden_field :image_cache %></p>
+
+	<p><%= f.label(:url)%></p>
+    <p><%=f.text_field(:imageurl, type:"string") %></p>
+
+	
+    
     <p><%= f.submit "Create" %></p>
 
 <% end %>

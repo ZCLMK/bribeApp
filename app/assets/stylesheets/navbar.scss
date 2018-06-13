@@ -1,3 +1,9 @@
+@import "./variables";
+
+.navbar{
+	background-color: $bg--yellow;
+}
+
 .avatar--drop{
   background:none;
   border:none;

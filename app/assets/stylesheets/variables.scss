@@ -1,0 +1,14 @@
+
+$bg--yellow:rgb(247, 247, 247);
+$font--primary:#030114;
+
+$font--event--title:  'Amaranth', sans-serif;
+$font--event--details: 'IBM Plex Sans', sans-serif;
+
+@mixin font-basics($size,$weight,$family){
+	font : {
+		size:$size;
+		weight:$weight;
+		family:$family; 
+	}
+}
