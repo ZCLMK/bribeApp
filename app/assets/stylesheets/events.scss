@@ -1,0 +1,121 @@
+@import "./variables.scss";
+
+* {
+	font : {
+		family : 'Quicksand', sans-serif;
+		size:1.2em;
+	}
+	z-index: 2;
+}
+.landscape--banner--index{
+	position:absolute;
+	top:$top--nav--height;
+	width:100vh;
+	height:360px;
+	z-index: 1;
+	img{
+		width:100vw;
+		height:100%;
+		filter: blur(6px);/* a faire sur l'image 0*/
+		opacity:.8;
+	}
+}
+.content--wrap{
+	position: absolute;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	top:50px;
+	padding: 0px 10vw; /* à supprimer sur petits écrans (media query)*/
+	background-color: $bg--primary;
+	z-index: -1;  /*pour voir le bandeau*/
+	
+}
+.section--head--first{
+	margin-top:50px;
+}
+.section--head {
+	padding: 5px;
+	width: 100%;
+	margin-top:10px;
+	.section--title {
+				margin-top:12px;
+				color:$font--primary;
+				font-size: 3.4em;
+				font-weight:200;
+				font-family: 'Martel Sans', sans-serif;
+				text-decoration: none;
+			}
+}
+
+
+
+.grid--wrapper{
+		padding:20px 20px;
+		display:grid;
+		width:100%;
+		grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+		grid-template-rows: repeat(auto-fit);
+		grid-column-gap: 1vw;
+		grid-row-gap: 3vh;
+		z-index: 1;
+
+	}
+.event {
+	
+	height: 220px;
+	display: block;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	border-radius: 7px;
+/*max-width?*/
+	.event--pic {
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.event--details {
+		background-color: #fff;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 1em;
+		text-align: justify;
+		height: 45%;
+		line-height: 1.2em;
+		@include font-basics(1em, 200, Verdana)
+	}
+		.event--creator {
+			font: {
+				size: 1.1em;
+				color: $font--event--creator;
+				style: bold;
+			}
+		}
+		.event--title {
+			@include font-basics(1.35em, 150, $event--title--font);
+		}
+}
+/* ------------------MEDIA QUERIES ------------------------*/
+@media all and (max-width: 550px) {
+	.event {
+
+		flex-basis: 100vw;
+		.event--details {
+			background-color: green;
+		}
+	}
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+
+@media all and (min-width: 550px) and (max-width: 768px) {
+}
+
+
+ /* iPads (portrait and landscape) 
+@media all and (min-width: 768px) and (max-width: 1024px) {}
+@media only screen and (min-width: 1224px) {}
+@media only screen and (min-width: 1824px) {}
+*/

@@ -37,6 +37,11 @@ footer, header, hgroup, main, menu, nav, section {
     display: none;
 }
 body {
+	top: 0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	position: absolute;
 	line-height: 1;
 }
 ol, ul {

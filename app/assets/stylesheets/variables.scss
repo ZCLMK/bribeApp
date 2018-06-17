@@ -1,14 +1,33 @@
 
-$bg--yellow:rgb(247, 247, 247);
+$bg--primary:#7bed9f;
+$bg--two:rgb(30, 91, 204);
+$bg--nav:#7bed9f;
+
+@mixin background-gradient{
+	background: #00C9FF;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, rgb(0, 255, 170)92FE9D, rgba(0, 228, 236, 0.979));  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, rgb(0, 255, 128), rgba(0, 228, 236, 0.979)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	
+}
+
 $font--primary:#030114;
-
 $font--event--title:  'Amaranth', sans-serif;
-$font--event--details: 'IBM Plex Sans', sans-serif;
+$font--event--creator: 'IBM Plex Sans', sans-serif;
+$top--nav--height: 51px;
+$event--title--font: 'Overpass Mono', monospace;
 
-@mixin font-basics($size,$weight,$family){
+@mixin font-basics($size,$weight,$family, $color:black){
 	font : {
 		size:$size;
 		weight:$weight;
 		family:$family; 
+		color:$color;
 	}
+}
+
+@mixin flex-center($direction:row, $justify-content:center, $align-items:center){
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify-content;
+	align-items: center;
+
 }

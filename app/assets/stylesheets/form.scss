@@ -1,0 +1,41 @@
+.content--wrapper--form{
+	position: absolute;
+	padding: 0px 10vw; /* à supprimer sur petits écrans (media query)*/
+	background:none;
+	z-index: -1;  /*pour voir le bandeau*/
+	height:600px;
+	@include flex-center;
+
+
+.form--wrapper{
+@include flex-center(column);
+		
+		form{
+			padding:3px;
+			.form{
+			
+				border-radius:5px;
+				background-color: none;
+				@include flex-center(column, space-around ,center);
+				
+				.fflex{
+					@include flex-center;
+				}
+			.field{
+				min-width: 500px;
+					@include flex-center(column);
+					#user_remember_me{
+						width:40px;
+					}
+				
+				input{
+					width:minmax(300px);
+					height:3em;
+					border-radius:3px;
+					opacity:1;	
+					}
+		  		}
+			}
+		}
+	}
+}

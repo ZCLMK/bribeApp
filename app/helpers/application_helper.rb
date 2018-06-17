@@ -6,10 +6,7 @@ module ApplicationHelper
   def formatted_date(date)
     return date.strftime("%d/%m/%Y")
   end
-  def has_url(param)
-    return !param.imageurl.blank?
-  end 
-  
+
   def has_image(param)
 	return !param.image.blank?
   end 

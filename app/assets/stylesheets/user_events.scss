@@ -1,0 +1,22 @@
+@import "./variables.scss";
+
+// .organizer{
+// 	width: 100vw;
+// 	height: 100vh;
+// 		.organizer--username{
+// 			@include font-basics(1.7em, 150, $font--event--title);
+// 		}
+
+.organizer{
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color:rgb(231, 245, 32) ;
+}
+
+.grid-container{
+	display: grid;
+	grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+	grid-template-rows: repeat(auto-fit, 200px);
+}

@@ -1,29 +1,32 @@
-<div class="container">
-    <% @events.each do |event| %>
-              
-      <div class=" event">
-          <div class="event--details">
-                  <a href="/events/<%=event.id%>"><%= event.title %></h2></a>
-                    <p>Le <%= formatted_date(event.date)%> à <%= formatted_time(event.time)%> </p>
-                     
-                    <p> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
-                    
-            </div>
+<div class="content--wrap">
 
-            <!--IMAGE SI FOURNIE -->
-    
-            <div class="event-pic">
-              <% if has_image(event)%>      
-                      
-									<%= image_tag "#{event.imageurl}"%>
-                    <button>S'incrire</button>
-                   
-							<% elsif has_url(event)%>
-									<%= image_tag "#{event.imageurl}" %>
-  
-            <% end %>
-            </div>
-      
-      </div>
-    <% end %>
+
+	
+	<div class="section--head">
+		<h1 class = "section--title">Ce week-end</h1>
+	</div>
+
+		<div class="grid--wrapper">
+			<% @events.each do |event| %>
+								
+				<div class=" event">
+						<div class="event--details">
+										<a href="/events/<%=event.id%>" class="event--title"><%= event.title %></h2></a>
+						<p>Le <span class="date"><%= formatted_date(event.date)%></span>  à <span class="date"> <%= formatted_time(event.time) %></span>
+											
+											<p> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
+											
+							</div>
+
+							<!--IMAGE SI FOURNIE -->
+			
+							<div class="event--pic">												
+										<%= image_tag "#{event.image.thumb.url}"%>
+											<button>S'incrire</button>
+								</div>
+				
+				</div>
+			<% end %>
+		</div>
+
 </div>

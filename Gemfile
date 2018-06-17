@@ -9,7 +9,6 @@ gem 'rails', '~> 5.2.0'
 
 # Use postgresql as the database for Active Record
 #-----------------------------
-
 gem 'figaro'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.7'

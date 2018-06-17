@@ -1,81 +1,72 @@
-<!-- week-end  -->
-<div class="flex--wrapper">
+	<!-- bandeau  (absolute)-->
+		<!-- bandeau -->
+	<div class="content--wrap">
 
-	<div class="section--head">
-		<h1 class = "section--title">Événements ce weed-end</h1>
-	</div>
+	<!-- week-end  -->
 
+		<div class="section--head section--head--first">
+			<h1 class = "section--title"> Ce Week-End</h1>
+		</div>
 
-	<div class="container section--wrapper">
-			<% @weekend.each do |event| %>
-		<a href="/events/<%=event.id%>">
+		<div class="grid--wrapper">
+				
+				<% @weekend.each do |event| %>
 			
-				<div class="event">
-					
-						<div class="event--details">
-						<h2 class="event--title"><%= event.title %></h2>
-			</a>
-											<p>Le <%= formatted_date(event.date)%> à <%= formatted_time(event.time)%> </p>
-											<p><%= event.address.titleize %></p>
-
-											<p class = "event--creator"> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
-							</div>
-
-							<!--IMAGE SI FOURNIE -->
 			
-					<div class="event--pic">
-						<a href="/events/<%=event.id%>">
-								<% if has_image(event) %>
-										<%= image_tag "#{event.image.thumb.url}" %>
-								<% elsif has_url(event)%>
-										<%= image_tag "#{event.imageurl}" %>
-								<% end %>
-							</div>
-						</a>
+			<div class="event">
+			<a href="/events/<%=event.id%>">
+				<div class="event--details">
+					<h2 class="event--title"><%= event.title %></h2>
+				</a>
+						<p>Le <span class="date"><%= formatted_date(event.date)%></span>  à <span class="date"> <%= formatted_time(event.time) %></span>
+						<p><%= event.address.titleize %></p>
+
+						<p class = "event--creator"> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
 				</div>
+
+								<!--IMAGE -->
+				
+				<div class="event--pic">
+							<a href="/events/<%=event.id%>">							
+								<%= image_tag "#{event.image.thumb.url}" %>
+							</a>
+				</div><!--IMAGE  fin -->
+			</div> <!-- event fin -->
+				<% end %>
+		</div> <!--section-wrapper fin -->
 		
-			<% end %>
-	</div>
-	<!-- concerts -->
+		<!-- week end fin /concerts  debut-->
 
-	<div class=" flex--wrapper">
+			<div class="section--head">
+				<h1 class = "section--title">Concerts</h1>
+			</div>
 
-		<div class="section-head">
-			<h1 class = "section--title">Concerts</h1>
-		</div>
-
-									
-		<div class="container section--wrapper">
-			<% @concerts.each do |event| %>
-						<a href="/events/<%=event.id%>">
-	
-				<div class="event">
-						<div class="event--details">
-										<a href="/events/<%=event.id%>" class="event--title"><%= event.title %></h2></a>
-											<p>Le <%= formatted_date(event.date)%> à <%= formatted_time(event.time)%> </p>
-								<!-- Gestion de la longueur de la description (extrait si > 300 caractères) -->            
-											<!--<p><%#= event.description.truncate(300, separator:'') %></p>-->
-								<!-- Gestion de la longueur de la descriptions - fin -->
-											<p> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
-							</div>
-									</a>
-							<!--IMAGE SI FOURNIE -->
-			
-							<div class="event--pic">
-						<a href="/events/<%=event.id%>">
+										
+			<div class="grid--wrapper">
+				<% @concerts.each do |event| %>
 							
-									<% if has_image(event) %>
-										<%= image_tag "#{event.image.thumb.url}" %>
-									<% elsif has_url(event)%>
-										<%= image_tag "#{event.imageurl}" %>
-								<% end %>
-							</div>
-					</a>
-				</div>
-			<% end %>
-		</div>
-		<div>
-</div>
-	<!-- Gestion de la longueur de la description (extrait si > 300 caractères) -->            
-          <!--<p><%#= event.description.truncate(300, separator:'') %></p>-->
-              <!-- Gestion de la longueur de la descriptions - fin -->
+		
+					<div class="event">
+					<a href="/events/<%=event.id%>">
+							<div class="event--details">
+									<a href="/events/<%=event.id%>" class="event--title"><%= event.title %></h2></a>
+										<p>Le <span class="date"><%= formatted_date(event.date)%> </span>à <span class="date"><%= formatted_time(event.time)%> </span><p>
+										<p><%= event.address.titleize %></p>
+
+										<p> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
+								</div>
+							</a>
+								<!--IMAGE -->
+				
+								<div class="event--pic">
+							<a href="/events/<%=event.id%>">
+											<%= image_tag "#{event.image.thumb.url}" %>			
+								</div>
+						</a> <!--IMAGE  fin-->
+					</div>
+				<% end %>
+			<!--section wrapper fin -->
+
+			<div>				<!--wrap fin -->
+
+

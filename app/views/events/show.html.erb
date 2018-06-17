@@ -1,45 +1,96 @@
-<div class="event-header">
-    <h1><%= @event.title %></h1>
-    <p>Le <%= formatted_date(@event.date)%> à  <%= formatted_time(@event.time) %>
-    <p id="event_address"><%= @event.address %></p>
-	<p>Créé par <%= @event.creator.username %></p>
 
- <!-- Inscription start-->      
-<% if user_signed_in?%>
-            <%if current_user.attended_evts.include?(@event) %>
-                <p>Vous êtes déja inscrit à cet évenement</p>
-           <%elsif current_user.id == @event.creator_id%>
-                <p>Vous êtes le créateur de l'évenement</p>
-            <%else%>
-             <%= button_to "S'inscrire", action: "subscribe" %>
-            <%end%>
-    <%end%>
-	 <!-- Inscription end-->
+<div class="content--wrapper">
+	<div class="show--wrapper"> 
+			
+			<!-- début de la présentation de l'évenement!-->
+		
+		<section class="show--wrapper--top"> 
+				<!-- image -->
+			<div class="event--picture">
+				<p><%= image_tag "#{@event.image.thumb.url}" %></p>
+			</div>
+				<!-- image end -->
+			<div class="event--info">
 
-	<% if has_image(@event) %>
-     <%= image_tag "#{@event.image.thumb.url}" %>
-	<% elsif has_url(@event)%>
-		<%= image_tag "#{@event.imageurl}" %>
-		<p>J'ai une URL!!</p>
-	<% end %>
-</div>
+				<h1 class="show--event--title"><%= @event.title %></h1>
+						<p>Le <span class="date"><%= formatted_date(@event.date)%></span>  à <span class="date"> <%= formatted_time(@event.time) %></span>
+						<p id="event--address"><%= @event.address %></p>
+						<p>Créé par <%= @event.creator.username %></p>
 
-<div class="event-body">
-    <p>
-        <%= @event.description %>
-    </p>        
-</div>
-
-<div class="attendees">
-	<p><%= @event.attendees.count %> inscrits dont:</p>
+				<!-- Inscription start-->      
+				<% if user_signed_in?%>
+										<%if @event.attendees.include?(current_user) %>
+												<p>Vous êtes inscrit à cet évenement</p>
+									<%elsif current_user.id == @event.creator_id%>
+												<p>Vous êtes le créateur de l'évenement</p>
+										<%else%>
+										<%= button_to "S'inscrire", action: "subscribe" %>
+										<%end%>
+						<%end%>
+					<!-- Inscription end-->
+			</div> <!-- event-info end -->
+					
+		</section>	
 	
- 		<% @attendees.each do |attendee|%>
-		 	<p><%= image_tag  "#{ attendee.avatar.thumb.url}" %></p>
-			<p><%=  attendee.username %></p>
-		<% end %>	
-</div>
-	 
-<!-------------------------------------------- MAP based on event.address -------------------------------------------------- -->
-	<div id="map"></div>
-	<%= render 'maps' %>
+			
+		<section class="show--wrapper--middle">
 
+					<div class="description">
+						<h3 class="title">Description <p><%= @maps_api_key %> </p></h3>
+						<p>
+							<%= @event.description %>
+						</p>        
+					</div>
+						<h3><%= @event.attendees.count %> inscrit(s) dont:</h3>
+					<div class="attendees">
+						
+						<% @attendees.each do |attendee|%>
+						
+						<div class="attendee">
+							<p><%= image_tag  "#{ attendee.avatar.thumb.url}" %></p>
+							<p><%=  attendee.username %></p>
+						</div>
+							
+						<% end %>	
+					</div>
+			<!--  						 MAP based on event.address 				- -->
+			<h3 class="title">Carte:</h3>
+					<div id="map" data-api="<%= @maps_api_key %>">
+					
+					</div>
+					
+			<div class="events--suggestions"> <!-- suggestions start-->
+				<h3 class="title">Quelques évenements par le même organisateur</h3>
+					<div class="grid--wrapper">
+						
+						<% @other_events_by_creator.each do |event| %>
+					
+					
+					<div class="event">
+						<a href="/events/<%=event.id%>">
+							<div class="event--details">
+								<h2 class="event--title"><%= event.title %></h2>
+							</a>
+									<p>Le <span class="date"><%= formatted_date(event.date)%></span>  à <span class="date"> <%= formatted_time(event.time) %></span>
+									<p><%= event.address.titleize %></p>
+
+									<p class = "event--creator"> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
+							</div>
+
+											<!--IMAGE -->
+							
+							<div class="event--pic">
+										<a href="/events/<%=event.id%>">							
+											<%= image_tag "#{event.image.thumb.url}" %>
+										</a>
+							</div><!--IMAGE  fin -->
+						</div> <!-- event fin -->
+							<% end %>
+					</div> <!--section-wrapper fin -->
+		</div> <!--suggestions end -->
+
+		</section> <!--show wrapper end-->
+			<%= render  "maps" %>
+	
+	</div>
+</div><!-- content wrapper end-->

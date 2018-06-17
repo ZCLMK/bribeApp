@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   before_action :event_params, only:[:create, :edit, :update]
   
   def index
-    @users = User.all
+    	@users = User.all
 		@events = Event.order('date asc')
 		@samedi = "16-06-2018".to_date
 		@dimanche =  "17-06-2018".to_date
@@ -14,8 +14,10 @@ class EventsController < ApplicationController
   end
   
   def show
-	@attendees  = @event.attendees 
-  end
+	@attendees  = @event.attendees
+	@other_events_by_creator = Event.where('creator_id' => @event.creator_id).limit(3) #Trois suggestions d'evenements par le même organisateur  
+	@maps_api_key = ENV['maps_api_key']
+end
     
   def new 
     @event = Event.new
@@ -53,7 +55,6 @@ class EventsController < ApplicationController
 
   def subscribe
     @event.attendees << current_user
-    current_user.attended_evts << @event
 		flash[:notice] = "Vous vous êtes bien inscrit(e) à l'évenement \" #{@event.title } \""
 		redirect_to @event 
   end
@@ -63,6 +64,7 @@ class EventsController < ApplicationController
   end
 
 
+
  private 		# ------------------------------------------- 
   
   def find_event 
@@ -70,7 +72,7 @@ class EventsController < ApplicationController
   end
   
   def event_params
-    params.require(:event).permit(:title, :description, :address, :date, :time, :category_id, :image_url, :image,  :image_cache, :remove_image)
+    params.require(:event).permit(:title, :description, :address, :date, :time, :category_id, :image,  :image_cache, :remove_image)
   end
 end
 

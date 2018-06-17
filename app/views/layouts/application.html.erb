@@ -6,23 +6,30 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ <!---fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Amaranth:700|IBM+Plex+Sans:300" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Tajawal:200" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i|Overpass+Mono:600|Quicksand:300" rel="stylesheet"> 
+   <link href="https://fonts.googleapis.com/css?family=Padauk:700" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Mina:700|Ramabhadra" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Martel+Sans" rel="stylesheet"> 	 
+	<!-- carousel back button fix -->
+	 <% if content_for?(:head) %>
+    <%= yield(:head) %>
+  <% end %>
+  <!-- carousel back button fix -->
+<!---fonts-->
   </head>
 
   <body>
 
        
     <%= render 'shared/header'%>
-		<p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+		
+		<p id="notice"><%= notice %></p>
+       <p id="alert"><%= alert %></p>
+		 
     <%= yield %>
-	 <%= render 'shared/footer'%>
-
-<!-- DEBUG ONLY -->
-	<% if user_signed_in?%>
-	<%= current_user.id  %>
-	<% end %>
-<!-- DEBUG ONLY -->
 
   </body>
 </html>

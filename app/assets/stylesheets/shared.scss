@@ -1,10 +1,42 @@
 @import './variables.scss';
 
-.flex-wrapper{
-	background-color: $bg--yellow;
+/* wraps all of the page except the top nav */
+
+body{
+@include background-gradient;
 }
-.notice{
-	p{
-		color: #035803;
+
+#notice{
+position: absolute;
+top:51px; 
+right:20px;
+color: #3cf736;
+font-weight: 500;
+height:0px;
+z-index: 10;
+}
+#alert {
+	z-index:10;
+	position: absolute;
+	top:70px; 
+	right:20px;
+	color: #e40202;
+	font-weight: 300;
+}
+
+.date{
+	font : {
+		size: 1.1em;
+		family: 'Padauk', sans-serif;
 	}
 }
+
+p{
+	line-height: 1.2em;
+	font : {
+		family: 'Josefin Sans', sans-serif ;
+		size:1.3em;
+		font-weight: 200;	
+	}
+}	
+

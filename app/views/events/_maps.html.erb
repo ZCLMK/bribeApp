@@ -1,44 +1,19 @@
+
 <script>
 
-		let eventAddress = document.getElementById("event_address").innerText.split(" ").join('')
-		console.log(`${eventAddress} 2`)
+		let eventAddress = document.getElementById("event--address").innerText.split(" ").join('')
 		let mymap
+		const mapsApiKey = $("div[data-api]").data('api')
+		console.log(typeof mapsApiKey)
 		const geoUrlPartOne="https://maps.googleapis.com/maps/api/geocode/json?address="
 		const geoUrlPartTwo="&key="
-		const geoDynamicUrl = [geoUrlPartOne, eventAddress, geoUrlPartTwo,<%= ENV["MAPS_API_KEY"] %>].join('')
-		const  mapsUrl = 'https://maps.googleapis.com/maps/api/js?key=<%= ENV["MAPS_API_KEY"] %>&callback=initMap' 
+		const geoDynamicUrl = [geoUrlPartOne, eventAddress, geoUrlPartTwo, mapsApiKey].join('')
 		let latitude = null
 		let longitude = null
+		let myKey=  'AIzaSyAwgKiNBBxNes-LV3TVp3jL8dFjSYHMXhY'
+// Callback de la requête à google maps
 
-// API DE GEOLOCALISATION (eventAddress => coordonnées (lat, lng))		
-			fetch(geoDynamicUrl)
-			
-			.then(function(response) {
-			
-			console.log('geo start');
-			return response.json();
-
-			})
-			.then(function(myJson) {
-				latitude = myJson.results[0].geometry.location.lat
-				longitude = myJson.results[0].geometry.location.lng
-				console.log("geo end ", latitude , longitude)
-				//	console.log("latitude en " + typeof latitude  + "longitude en " +  typeof longitude);
-			})
-			
-// API GOOGLE MAPS 
-			.then(function (){
-		
-				let scriptElt = document.createElement('script')
-				scriptElt.setAttribute("src", mapsUrl)
-				body = document.getElementsByTagName("body")[0]
-				body.appendChild(scriptElt)
-				console.log("script generated")
-		})
-
-	function initMap() {
-		
-				console.log(" initmap start" + latitude  )
+	function initMap() {		
 				const coordinates = {lat: latitude, lng: longitude};
 				
 				// CARTE
@@ -51,7 +26,37 @@
 				position: coordinates,
 				map: mymap
 				});
-
 			}
-		</script>
 	
+// API DE GEOLOCALISATION (eventAddress => coordonnées (lat, lng))		
+			fetch(geoDynamicUrl)
+			
+			.then(function(response) {
+			
+			console.log('geo start');
+			return response.json();
+
+			})
+			.catch(error => console.log('geo brut error: ' + error))
+
+			.then(function(myJson) {
+			console.log(myJson)
+				latitude = myJson.results[0].geometry.location.lat
+				longitude = myJson.results[0].geometry.location.lng
+				console.log("geo end ", latitude , longitude)
+				//	console.log("latitude en " + typeof latitude  + "longitude en " +  typeof longitude);
+			})
+			.catch(error => console.log('geo traité ' + error))
+			
+// API GOOGLE MAPS 
+			.then(function (){
+		
+				const  mapsUrl = "https://maps.googleapis.com/maps/api/js?key="+ myKey +  "&callback=initMap"
+				let scriptElt = document.createElement('script')
+				scriptElt.setAttribute('src', mapsUrl)
+				body = document.getElementsByTagName("body")[0]
+				body.appendChild(scriptElt)
+		})
+			.catch(error => console.log('generate script :' + error))
+ // turbolinks - end 
+ </script>

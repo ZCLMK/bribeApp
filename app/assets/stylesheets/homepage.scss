@@ -1,0 +1,76 @@
+
+.carousel{
+	height: 90vh;
+	width:100%;
+	z-index: 2;
+	top:$top--nav--height;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom:50px;
+	
+		.home--welcome--box{
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items:center;
+			height:200px;
+			color:#fff;
+			text-decoration: none;
+			font : {
+				size:3em;
+				weight:400;
+					}
+	}
+}
+//  image actuelle du carousel
+.carousel--img--one{
+	background-image: url(rando.jpg);
+}
+.carousel--img--two{
+	background-image: url(conteur.jpg);
+}
+
+
+#button--connect{
+	@include font-basics(1.2em, 200, $font--event--creator,#fff);
+	border-radius:5px;
+	background-color:$bg--two;
+	border:none;
+	text-decoration:none;
+	font-style:normal;
+	&:hover{
+		color:$font--primary;
+		background-color:rgb(84, 39, 189);
+	}
+}
+
+.home--events--wrap{
+		display:block;
+		padding: 15px 10vw; /* à supprimer sur petits écrans (media query)*/
+		background-color: $bg--primary;
+		z-index: -1;  /*pour voir le bandeau*/
+		
+		.home--section--head{
+
+			padding: 5px;
+			width: 100%;
+			.section--title {
+				color:$font--primary;
+				font-size: 3.4em;
+				font-weight:200;
+				font-family: 'Martel Sans', sans-serif;
+	}	
+		}
+		
+}
+/*
+.carousel--img--one{
+}
+.carousel--img--two{
+}
+.carousel--img--three{
+}
+
+*/

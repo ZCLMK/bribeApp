@@ -1,43 +1,40 @@
+<div class="content--wrap"> 
+			
+				<!-- INFOS user-->
+			<div class="organizer">
 
-
-<div class="container">
-        <h1><%=@user.username%></h1>
-    <% if !@user.avatar.file.nil? %>
-    
-        <p><%=image_tag(@user.avatar.thumb.url)%></p>
-        <% else %>
-         <p><%=image_tag("avatar_default.jpeg")%></p>
-    <% end %>
-
-    <% @events.each do |event| %>
-      <% @description = event.description.to_s %>
-              
-      <div class="event">
-          <div class="event--details">
-                  <a href="/events/<%=event.id%>"><%= event.title %></h2></a>
-                    <p>Le <%= formatted_date(event.date)%> à  <%= formatted_time(event.time) %>
-               
-              <!-- Gestion de la longueur de la description (extrait si > 300 caractères) -->            
-                    <p><%= @description.truncate(450, separator:' ') %></p>
-              <!-- Gestion de la longueur de la descriptions - fin -->
-                     </div>
-						<div class="event--pic">   
-              <% if has_image(event)%>      
-                      
-									<%= image_tag "#{event.imageurl}"%>
-                    <button>S'incrire</button>
-                   
-							<% elsif has_url(event)%>
-									<%= image_tag "#{event.imageurl}" %>
-            	
-							<% end %>
-            </div>
-				<!-- modifier l'évenement -->
-	
-				<% if current_user.id == event.creator_id%>
-					<a href="/events/<%= event.id %>/edit">Modifier l'évenement</a>
+				<% if !@user.avatar.file.nil? %>
+				
+						<p class="organizer--avatar"><%=image_tag(@user.avatar.thumb.url)%></p>
+						<% else %>
+						<p class="organizer--avatar"><%=image_tag("avatar_default.jpeg")%></p>
+				
 				<% end %>
-	
+						<h1 class="organizer--username"><%=@user.username%></h1>		
+			</div>
+						
+			<div class="grid--wrapper">
+
+				<% @events.each do |event| %>
+					<% @description = event.description.to_s %>
+									
+					<div class="event">
+							<div class="event--details">
+											<a class="event--title" href="/events/<%=event.id%>">
+												<%= event.title %>
+											</a>
+												<p>Le <span class="date"><%= formatted_date(event.date)%></span>  à <span class="date"> <%= formatted_time(event.time) %></span>
+												<p><%= event.address.titleize %></p>
+												</div>
+								<div class="event--pic">   
+											<%= image_tag "#{event.image.thumb.url}"%>
+											<button>S'incrire</button>
+
+				<% end %>
+								</div>
+							</div>
+						</div>			
+		<!-- grid end -->
 		</div>
-    <% end %>
- </div>
+	</div>
+
