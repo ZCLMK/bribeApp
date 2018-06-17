@@ -3,6 +3,7 @@ require 'faker'
 
 
 30.times do |i|
+
 users = [4, 5, 6, 8, 9, 10]
 
 musique = [
@@ -18,8 +19,8 @@ musique = [
 	 peintre anonyme assembla ensemble des morceaux de texte pour réaliser un
 	 livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, 
 	 mais s'est aussi adapté à la bureautique informatique, sans que son contenu 
-	 n'en soit modifié. ", date: Faker::Date.between("16-06-2018".to_date,"17-06-2018".to_date ) ,
+	 n'en soit modifié. ", date: Faker::Date.between("23-06-2018".to_date,"24-06-2018".to_date ) ,
 	 time: Faker::Time.forward(23, :morning).strftime("%H:%M"), address:  musique[rand(3)], creator_id: users[rand(5)], created_at: Faker::Date.backward(5), 
-	 image: nil, category_id: rand(1..6))
+	 image: "fallback/default-img.jpg", category_id: rand(1..6))
 end 
 

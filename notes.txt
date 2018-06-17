@@ -10,3 +10,7 @@ Pour utiliser cette clé dans votre application, utilisez-la sous la forme du pa
 Unsplash random 
 
 https://source.unsplash.com/random/600x400
+
+pr autoriser la syntaxe es6 en production sur heroku: 
+
+config.assets.js_compressor = Uglifier.new(harmony: true) (dans production.rb)
