@@ -18,8 +18,6 @@ gem 'faker'
 gem 'carrierwave', '>= 0.10.0'
 gem 'mini_magick', '>= 4.3'
 gem 'fog'
-gem 'bootstrap-timepicker-rails', :require => 'bootstrap-timepicker-rails',
-                              :git => 'git://github.com/tispratik/bootstrap-timepicker-rails.git'
 #-----------------------------
 
 # Use Puma as the app server
