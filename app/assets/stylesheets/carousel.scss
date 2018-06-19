@@ -1,0 +1,38 @@
+/* Carousel */
+.carousel{
+	height: 90vh;
+	width:100%;
+	z-index: 2;
+	top:$top--nav--height;
+	@include flex-center;
+	margin-bottom:50px;
+	
+	//  image actuelle du carousel
+
+		.home--welcome--box{
+			text-align: center;
+			@include flex-center(column, space-around, center);
+			height:200px;
+			color:#fff;
+			text-decoration: none;
+			z-index:2;
+			font : {
+				size:3em;
+				weight:400;
+					}
+				}
+}
+
+.carousel--img--one{
+	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/yoga.jpg);
+}
+.carousel--img--two{
+	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/conteur.jpg);
+}
+.carousel--img--three{
+	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/groupe.jpg);
+	background-size: 120%;
+}
+.carousel--img--four{
+	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/poterie.jpg);
+}

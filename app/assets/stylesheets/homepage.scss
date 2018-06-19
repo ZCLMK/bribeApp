@@ -1,38 +1,5 @@
-
-.carousel{
-	height: 90vh;
-	width:100%;
-	z-index: 2;
-	top:$top--nav--height;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-bottom:50px;
-	
-		.home--welcome--box{
-			text-align: center;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
-			align-items:center;
-			height:200px;
-			color:#fff;
-			text-decoration: none;
-			font : {
-				size:3em;
-				weight:400;
-					}
-	}
-}
+/* Carousel */
 //  image actuelle du carousel
-.carousel--img--one{
-	background-image: url(rando.jpg);
-}
-.carousel--img--two{
-	background-image: url(conteur.jpg);
-}
-
-
 #button--connect{
 	@include font-basics(1.2em, 200, $font--event--creator,#fff);
 	border-radius:5px;

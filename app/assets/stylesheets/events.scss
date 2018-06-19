@@ -21,12 +21,12 @@
 	}
 }
 .content--wrap{
-	position: absolute;
+	position: relative;
 	left:0px;
 	right:0px;
 	bottom:0px;
-	top:50px;
-	padding: 0px 10vw; /* à supprimer sur petits écrans (media query)*/
+	top:35px;
+	padding: 3vh 10vw; /* à supprimer sur petits écrans (media query)*/
 	background-color: $bg--primary;
 	z-index: -1;  /*pour voir le bandeau*/
 	
@@ -39,7 +39,7 @@
 	width: 100%;
 	margin-top:10px;
 	.section--title {
-				margin-top:12px;
+				margin-bottom: 10px;
 				color:$font--primary;
 				font-size: 3.4em;
 				font-weight:200;
@@ -48,70 +48,77 @@
 			}
 }
 
-
-
 .grid--wrapper{
-		padding:20px 20px;
 		display:grid;
 		width:100%;
-		grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
 		grid-template-rows: repeat(auto-fit);
-		grid-column-gap: 1vw;
-		grid-row-gap: 3vh;
+		grid-row-gap: 20px;
+		grid-column-gap:20px;
 		z-index: 1;
-
-	}
-.event {
-	
-	height: 220px;
-	display: block;
-	overflow-y: hidden;
-	overflow-x: hidden;
-	border-radius: 7px;
-/*max-width?*/
-	.event--pic {
-		img {
-			width: 100%;
-			height: 100%;
-		}
-	}
-	.event--details {
-		background-color: #fff;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		padding: 1em;
-		text-align: justify;
-		height: 45%;
-		line-height: 1.2em;
-		@include font-basics(1em, 200, Verdana)
-	}
-		.event--creator {
-			font: {
-				size: 1.1em;
-				color: $font--event--creator;
-				style: bold;
+		.event {
+			height: 250px;
+			display: block;
+			overflow-y: hidden;
+			overflow-x: hidden;
+			border-radius: 7px;
+		/*max-width?*/
+			.event--pic {
+					height:65%;
+				img {
+					width: 100%;
+					height: 100%;
+				}
 			}
-		}
-		.event--title {
-			@include font-basics(1.35em, 150, $event--title--font);
-		}
+			.event--details {
+				background-color: #fff;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				padding: 1em;
+				text-align: justify;
+				height: 35%;
+				line-height: 1.2em;
+				@include font-basics(1em, 200, Verdana)
+			}
+				.event--creator {
+					font: {
+						size: 1.1em;
+						color: $font--event--creator;
+						style: bold;
+					}
+				}
+				.event--title {
+					@include font-basics(1.35em, 150, $event--title--font);
+				}
+	}
 }
 /* ------------------MEDIA QUERIES ------------------------*/
-@media all and (max-width: 550px) {
-	.event {
-
-		flex-basis: 100vw;
-		.event--details {
-			background-color: green;
-		}
-	}
-}
 
 /* Smartphones (portrait and landscape) ----------- */
 
-@media all and (min-width: 550px) and (max-width: 768px) {
+@media screen 
+and (max-width : 480px) {
+/* Styles */
 }
+
+/* iPads (portrait and landscape) ----------- */
+@media screen 
+and (max-width : 760px) {
+
+}
+@media all 
+and (min-width : 760px) 
+and (max-width : 1024px) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media all 
+and (min-width : 1024px) {
+/* Styles */
+}
+
 
 
  /* iPads (portrait and landscape) 

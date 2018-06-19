@@ -1,41 +1,67 @@
+
 .content--wrapper--form{
-	position: absolute;
-	padding: 0px 10vw; /* à supprimer sur petits écrans (media query)*/
-	background:none;
-	z-index: -1;  /*pour voir le bandeau*/
-	height:600px;
-	@include flex-center;
+	margin-top:$top--nav--height;
 
-
-.form--wrapper{
-@include flex-center(column);
-		
-		form{
-			padding:3px;
-			.form{
+	
+	.form--wrapper{
+	@include flex-center(column);
 			
-				border-radius:5px;
-				background-color: none;
-				@include flex-center(column, space-around ,center);
+	.form--title{
+		font: {
+			weight: 200;
+			size:2em;
+		}
+		color:#fff;
+		margin:2vh 0;
+	}
+
+			form{
+				padding:3px;
+				.form{
 				
-				.fflex{
-					@include flex-center;
+					border-radius:5px;
+					background-color: none;
+					@include flex-center(column, space-around ,center);
+	
+					#avatar--choose{
+						margin:20px 0px;
+					}
+					
+	
+				.field{
+					min-width: 500px;
+						@include flex-center(column);
+						#user_remember_me{
+							width:40px;
+						}
+						input{
+						width:290px;
+						height:3em;
+						border-radius:3px;
+						opacity:1;	
+						}
+					  }
+					  #avatar--preview{
+						  border-radius: 50px;
+						  height:5em;
+						  width:5em;
+					  }
+					  .actions{
+						  input{
+							  @include form-button;
+						}	
+					}
+					form{
+						#cancel--account{
+							@include form-button($btn--red);
+						}
+					}
+						.devise--link{
+							a{
+								color:#fff;
+							}
+					}
 				}
-			.field{
-				min-width: 500px;
-					@include flex-center(column);
-					#user_remember_me{
-						width:40px;
-					}
-				
-				input{
-					width:minmax(300px);
-					height:3em;
-					border-radius:3px;
-					opacity:1;	
-					}
-		  		}
 			}
 		}
 	}
-}

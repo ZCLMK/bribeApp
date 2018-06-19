@@ -10,8 +10,7 @@
 
 		<div class="grid--wrapper">
 				
-				<% @weekend.each do |event| %>
-			
+				<% @weekend[0..2].each do |event| %>
 			
 			<div class="event">
 			<a href="/events/<%=event.id%>">
@@ -34,39 +33,44 @@
 			</div> <!-- event fin -->
 				<% end %>
 		</div> <!--section-wrapper fin -->
-		
+
 		<!-- week end fin /concerts  debut-->
+
+
+
 
 			<div class="section--head">
 				<h1 class = "section--title">Concerts</h1>
 			</div>
 
 										
-			<div class="grid--wrapper">
-				<% @concerts.each do |event| %>
+			<section class="grid--wrapper">
+				<%  @concerts.each do |event|%>
 							
-		
 					<div class="event">
-					<a href="/events/<%=event.id%>">
+						<a href="/events/<%=event.id%>">
 							<div class="event--details">
 									<a href="/events/<%=event.id%>" class="event--title"><%= event.title %></h2></a>
 										<p>Le <span class="date"><%= formatted_date(event.date)%> </span>à <span class="date"><%= formatted_time(event.time)%> </span><p>
 										<p><%= event.address.titleize %></p>
 
 										<p> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
+						</a>
 								</div>
-							</a>
+							
 								<!--IMAGE -->
 				
-								<div class="event--pic">
-							<a href="/events/<%=event.id%>">
-											<%= image_tag "#{event.image.thumb.url}" %>			
-								</div>
-						</a> <!--IMAGE  fin-->
+							<div class="event--pic">
+								<a href="/events/<%=event.id%>">
+									<%= image_tag "#{event.image.thumb.url}" %>			
+								</a> <!--IMAGE  fin-->
+							</div>
+							
 					</div>
-				<% end %>
-			<!--section wrapper fin -->
+						
+			
 
-			<div>				<!--wrap fin -->
-
+				<% end %> <!-- events from category fin-->
+			<section><!-- category fin-->
+		</div>				<!--wrap fin -->
 

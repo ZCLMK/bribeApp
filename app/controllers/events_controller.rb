@@ -1,23 +1,20 @@
 class EventsController < ApplicationController
 	skip_before_action :verify_authenticity_token
-
-  before_action :find_event, only:[:show, :subscribe, :edit,  :update]
-  before_action :event_params, only:[:create, :edit, :update]
+ 	before_action :find_event, only:[:show, :subscribe, :edit,  :update]
+  	before_action :event_params, only:[:create, :edit, :update]
+  	before_action :weekend, only:[:index]
   
   def index
     	@users = User.all
 		@events = Event.order('date asc')
-		@samedi = "16-06-2018".to_date
-		@dimanche =  "17-06-2018".to_date
-		@weekend = Event.where(:date => @samedi.beginning_of_day..@dimanche.end_of_day).limit(6)
-		@concerts = @events.where(category_id: 1).limit(3)
+		@concerts = Event.where(category_id: 1).limit(3)
   end
   
   def show
-	@attendees  = @event.attendees
-	@other_events_by_creator = Event.where('creator_id' => @event.creator_id).limit(3) #Trois suggestions d'evenements par le même organisateur  
-	@maps_api_key = ENV['maps_api_key']
-end
+		@attendees  = @event.attendees
+		@other_events_by_creator = Event.where('creator_id' => @event.creator_id).limit(3) #Trois suggestions d'evenements par le même organisateur  
+		@maps_api_key = ENV['MAP_API_KEY']
+		end
     
   def new 
     @event = Event.new
@@ -36,7 +33,6 @@ end
     end
   end 
 
-    
   def edit
   end 
   
@@ -60,10 +56,12 @@ end
   end
   
   def category
-    @events = Event.where(category_id: params[:id])
+	 @events = Event.where(category_id: params[:id])
+	 @category = Category.find(params[:id])
   end
+ #------helpers------
 
-
+ 
 
  private 		# ------------------------------------------- 
   
@@ -74,6 +72,17 @@ end
   def event_params
     params.require(:event).permit(:title, :description, :address, :date, :time, :category_id, :image,  :image_cache, :remove_image)
   end
+
+  def weekend
+	events = Event.all 
+	@weekend = []
+	events.each do |e|
+		if e.date.wday == 6 || e.date.wday ==7
+			@weekend << e 
+		end 
+	end
+	@weekend
+end 
 end
 
 

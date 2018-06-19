@@ -1,20 +1,6 @@
-<!-- Carousel ------------------------------------------------------------------>
-<div class="carousel carousel--img--two"> <!-- absolute positioning -->
-				<div class="home--welcome--box">
-					<h2>Organisez et invitez-vous <br> à des évenements près de chez vous!</h2>
-		
-						<% if user_signed_in? %>
-						<p><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete%></p>
-						<p><%= link_to 'Organiser un évenement', new_event_path%></p>
-						<% else %>
-							<p><%= button_to 'Se connecter', new_user_session_path, id:"button--connect"%></p>
-						<% end %>		
-			
-				</div>		
-</div>	
-<!-- Carousel fin ------------------------------------------------------------------>
 
-<div class="content--wrapper">
+
+<div class="content--wrapper--form">
 	<div class="form--wrapper">
 	<div class="form--title">
 			<h2 >Modifier mes infos</h2>
@@ -25,36 +11,9 @@
 		<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 		<%= devise_error_messages! %>
 			<div class="form">
-				<div class="field">
-					<%= f.label :email %><br />
-					<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-				</div>
-
-				<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-					<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-				<% end %>
-
-				<div class="field">
-					<%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-					<%= f.password_field :password, autocomplete: "off" %>
-					<% if @minimum_password_length %>
-						<br />
-						<em><%= @minimum_password_length %> characters minimum</em>
-					<% end %>
-				</div>
-
-				<div class="field">
-					<%= f.label :password_confirmation %><br />
-					<%= f.password_field :password_confirmation, autocomplete: "off" %>
-				</div>
-
-				<div class="field">
-					<%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-					<%= f.password_field :current_password, autocomplete: "off" %>
-				</div>
-				
-				<% if current_user.avatar.url.present? %>
-					<%= image_tag(current_user.avatar.thumb.url) %>
+<!--AVATAR-->
+					<% if current_user.avatar.url.present? %>
+					<%= image_tag(current_user.avatar.thumb.url, id:"avatar--preview") %>
 					<%= f.label :remove_avatar do %>
 						<%= f.check_box :remove_avatar %>
 					<% end %>
@@ -62,16 +21,45 @@
 				<%= f.file_field :avatar %>
 				<%= f.hidden_field :avatar_cache %>
 				
+<!--AVATAR fin-->
+
+				<div class="field ff">
+					<%= f.text_field :username, autofocus: true, placeholder: :pseudo%>
+				</div>
+
+
+				<div class="field">
+					<%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: :email %>
+				</div>
+
+				<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+					<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+				<% end %>
+
+				<div class="field">
+					<%= f.password_field :password, autocomplete: "off" , placeholder: :mot_de_passe_remplir_en_cas_de_changement%>
+					<% if @minimum_password_length %>
+						<br />
+						<em><%= @minimum_password_length %> characters minimum</em>
+					<% end %>
+				</div>
+
+				<div class="field">
+					<%= f.password_field :password_confirmation, autocomplete: "off",   placeholder: :confirmation_mot_de_passe %>
+				</div>
+
+				<div class="field">
+					<%= f.password_field :current_password, autocomplete: "off", placeholder: :mot_de_passe_actuel %>
+				</div>
+				
 				<div class="actions">
-					<%= f.submit "Update" %>
+					<%= f.submit "Mettre à jour mes infos" %>
 				</div>
 				<% end %>
 
-		<h3>Cancel my account</h3>
+		<p><%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, id:"cancel--account" %></p>
 
-		<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-		<%= link_to "Back", :back %>
+		<%= link_to "Retour", :back %>
 		</div>
 	</div>
 </div>

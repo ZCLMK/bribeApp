@@ -2,7 +2,7 @@
 $bg--primary:#7bed9f;
 $bg--two:rgb(30, 91, 204);
 $bg--nav:#7bed9f;
-
+$btn--red:#e40101;
 @mixin background-gradient{
 	background: #00C9FF;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to bottom, rgb(0, 255, 170)92FE9D, rgba(0, 228, 236, 0.979));  /* Chrome 10-25, Safari 5.1-6 */
@@ -12,7 +12,7 @@ $bg--nav:#7bed9f;
 $font--primary:#030114;
 $font--event--title:  'Amaranth', sans-serif;
 $font--event--creator: 'IBM Plex Sans', sans-serif;
-$top--nav--height: 51px;
+$top--nav--height: 50px;
 $event--title--font: 'Overpass Mono', monospace;
 
 @mixin font-basics($size,$weight,$family, $color:black){
@@ -28,6 +28,19 @@ $event--title--font: 'Overpass Mono', monospace;
 	display: flex;
 	flex-direction: $direction;
 	justify-content: $justify-content;
-	align-items: center;
+	align-items: $align-items;
 
+}
+
+@mixin form-button($background-color: #1e5bcc ){
+	font-size: 1.2em;
+	font-weight: 200;
+	font-family: "IBM Plex Sans", sans-serif;
+	color: #fff;
+	border-radius: 5px;
+	background-color: $background-color;
+	border: none;
+	text-decoration: none;
+	font-style: normal;
+	height: 1.5em;
 }

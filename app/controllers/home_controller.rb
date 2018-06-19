@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   def index
 	@events = Event.all
 	 @user = User.all
+
   end
   
   def show

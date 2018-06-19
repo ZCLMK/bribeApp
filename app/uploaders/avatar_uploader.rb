@@ -4,7 +4,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
    include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  storage :aws
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -27,9 +27,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
-  def default_url(*args)
-	ActionController::Base.helpers.asset_path("fallback/" + ["avatar_default.jpeg"].compact.join('_'))
-  end
+#   def default_url(*args)
+# 	ActionController::Base.helpers.asset_path("fallback/" + ["avatar_default.jpeg"].compact.join('_'))
+#   end
 
   # Create different versions of your uploaded files:
    version :thumb do

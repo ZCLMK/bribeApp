@@ -18,6 +18,8 @@ gem 'faker'
 gem 'carrierwave', '>= 0.10.0'
 gem 'mini_magick', '>= 4.3'
 gem 'fog'
+gem 'carrierwave-aws'
+gem 'aws-sdk-s3', '~> 1'
 #-----------------------------
 
 # Use Puma as the app server
