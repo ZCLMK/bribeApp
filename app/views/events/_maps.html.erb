@@ -6,7 +6,7 @@
 		const mapsApiKey = $("div[data-api]").data('api')
 		const geoUrlPartOne="https://maps.googleapis.com/maps/api/geocode/json?address="
 		const geoUrlPartTwo="&key="
-		const geoDynamicUrl = [geoUrlPartOne, eventAddress, geoUrlPartTwo,<%=ENV['MAP_API_KEY']%> ].join('')
+		const geoDynamicUrl = [geoUrlPartOne, eventAddress, geoUrlPartTwo, String(<%=ENV['MAP_API_KEY']%>) ].join('')
 		let latitude = null
 		let longitude = null
 		
@@ -49,8 +49,8 @@
 			
 // API GOOGLE MAPS 
 			.then(function (){
-		
-				const  mapsUrl = "https://maps.googleapis.com/maps/api/js?key="+<%=ENV['MAP_API_KEY']%> +  "&callback=initMap"
+				console.log(typeof String(<%=ENV['MAP_API_KEY']%>))
+				const  mapsUrl = "https://maps.googleapis.com/maps/api/js?key="+ String(<%=ENV['MAP_API_KEY']%>) +  "&callback=initMap"
 				let scriptElt = document.createElement('script')
 				scriptElt.setAttribute('src', mapsUrl)
 				body = document.getElementsByTagName("body")[0]
