@@ -6,6 +6,8 @@
 	top:$top--nav--height;
 	@include flex-center;
 	margin-bottom:50px;
+	background:no-repeat;
+	background-size: cover;
 	
 	//  image actuelle du carousel
 
@@ -24,15 +26,15 @@
 }
 
 .carousel--img--one{
-	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/yoga.jpg);
+	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/yoga.jpg?versionId=null);
 }
 .carousel--img--two{
-	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/conteur.jpg);
+	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/conteur.jpg?versionId=null);
 }
 .carousel--img--three{
-	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/groupe.jpg);
+	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/groupe.jpg?versionId=null);
 	background-size: 120%;
 }
 .carousel--img--four{
-	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/poterie.jpg);
+	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/poterie.jpg?versionId=null);
 }

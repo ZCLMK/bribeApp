@@ -97,28 +97,28 @@
 
 /* Smartphones (portrait and landscape) ----------- */
 
-@media screen 
+/*@media screen 
 and (max-width : 480px) {
-/* Styles */
+
 }
 
 /* iPads (portrait and landscape) ----------- */
-@media screen 
+/*@media screen 
 and (max-width : 760px) {
 
-}
-@media all 
+}*/
+/*@media all 
 and (min-width : 760px) 
 and (max-width : 1024px) {
-/* Styles */
-}
+
+}*/
 
 /* Desktops and laptops ----------- */
-@media all 
+/*@media all 
 and (min-width : 1024px) {
-/* Styles */
-}
 
+}
+*/
 
 
  /* iPads (portrait and landscape) 
@@ -126,3 +126,41 @@ and (min-width : 1024px) {
 @media only screen and (min-width: 1224px) {}
 @media only screen and (min-width: 1824px) {}
 */
+
+/*@media all and (min-width: 0px) and (max-width: 200px) {*/
+/* Styles */
+/*.home--events--wrap{
+	background-color: black;
+	/*background-color: rgb(252, 206, 138);*/
+		// #navbar{
+		// 	height:100vh;
+		// 	display:block;
+		// }
+/*	}
+}*/
+/*@media all and (min-width: 200px) and (max-width: 400px){
+.home--events--wrap{
+	background-color: blue;
+	}
+}
+
+@media all and (min-width: 400px) and (max-width: 600px){
+.home--events--wrap{
+	background-color: yellow;
+	}
+}
+
+@media all and (min-width: 600px)and (max-width: 800px){
+.home--events--wrap{
+	background-color: green;
+	}
+}
+
+@media all and (min-width: 800px){
+.home--events--wrap{
+	background-color: red;
+	}
+}
+*/
+
+

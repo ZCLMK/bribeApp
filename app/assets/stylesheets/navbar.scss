@@ -6,66 +6,8 @@
 	background-color: transparent !important;
 }
 
-.nav--top{
-		height:50px;
-		padding:0px 5px;
-		background-color: $bg--nav;
-		border-bottom:rgb(1, 71, 136) .5px solid;
-		min-width: 300px;
-		.navbar-header{
-			a.top--sitename{
-				font : {
-					size:2.4em;
-					weight: 400; 
-				}
-			}
-		}
-		button{
-			background-color:$bg--two;
-			.icon-bar{
-				background-color:white;
-			}
-		}
-		a{
-			color:#fff;
-		}
-		#navbar{
-			width: 100%;
-			.top--item{
-				font-size:1.8em;
-		}
-			.dropdown{
-				@include flex-center	(center, center);
-				height:50px;
-				width:130px;
-				a {
-					@include flex-center(center, center);
-						img{
-							margin-left:15px;
-							border-radius:50%;
-					}
-				}
-			}
-			.drop--ul{
-				background: rgb(1, 71, 136);
-				// @include flex-center(column, center, center)
-				}
-	
-			.avatar--drop{
-			background:none;
-			border:none;
-			}
-		}
-		
-}
-
-
 /*smartphone*/
-@media screen 
-and (max-width : 768px) {
-html{
-	font-size:12px;
-}
+
 
 /* Styles */
 .nav--top{
@@ -84,6 +26,7 @@ html{
 		.dropdown{
 			height:10vh;
 		
+		
 			.top--item{
 				font-size:1.8em;
 				padding: 0px;
@@ -101,13 +44,21 @@ html{
 			}
 		}
 			}
+			ul.navbar-right{
+				.dropdown{
+					 a img{
+				width:50px;
+				height:50px;
+				 }
+				}
+			}
 		}
 	}
-}
+
 
 
 /* iPads (portrait and landscape) ----------- */
-// @media screen and (min-width: 380px) 
+// @media all and (min-width: 380px) 
 // and (max-width : 760px) {
 // 	.nav--top{
 // 		background-color: rgb(138, 235, 59);
@@ -115,18 +66,8 @@ html{
 // 		// }
 // 	}
 // }
-@media all 
-and (min-width : 760px) 
-and (max-width : 1024px) {
-/* Styles */
-.nav--top{
-	background-color: rgb(252, 206, 138);
-		// #navbar{
-		// 	height:100vh;
-		// 	display:block;
-		// }
-	}
-}
+
+
 /* Desktops and laptops ----------- */
 // @media all 
 // and (min-width : 1024px) {
