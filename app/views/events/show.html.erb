@@ -58,9 +58,11 @@
 					<div id="map" data-api="<%= @maps_api_key %>">
 					
 					</div>
-					
+			</section> <!--show wrapper middle end-->
+		</div> <!-- show wrapper fin-->
 			<div class="events--suggestions"> <!-- suggestions start-->
 				<h3 class="title">Quelques évenements par le même organisateur</h3>
+				<div class="grid--outer">
 					<div class="grid--wrapper">
 						
 						<% @other_events_by_creator.each do |event| %>
@@ -89,8 +91,7 @@
 					</div> <!--section-wrapper fin -->
 		</div> <!--suggestions end -->
 
-		</section> <!--show wrapper end-->
 			<%= render  "maps" %>
+		</div>
 	
-	</div>
 </div><!-- content wrapper end-->

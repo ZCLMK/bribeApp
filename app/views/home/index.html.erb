@@ -20,32 +20,33 @@
 					<div class="home--section--head">
 			<h1 class = "section--title">Evenements populaires</h1>
 		</div>
-
-		<div class="grid--wrapper">
-				
-				<% popular(@events, 1).each do |event| %>
-			
-			
-			<div class="event">
-			<a href="/events/<%=event.id%>">
-				<div class="event--details">
-					<h2 class="event--title"><%= event.title %></h2>
-				</a>
-						<p>Le <span class="date"><%= formatted_date(event.date)%></span>  à <span class="date"> <%= formatted_time(event.time) %></span>
-						<p><%= event.address.titleize %></p>
-
-						<p class = "event--creator"> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
-				</div>
-
-								<!--IMAGE -->
-				
-				<div class="event--pic">
-							<a href="/events/<%=event.id%>">							
-								<%= image_tag "#{event.image.thumb.url}" %>
-							</a>
-				</div><!--IMAGE  fin -->
-			</div> <!-- event fin -->
-				<% end %>
-		</div> <!--section-wrapper fin -->
 		
-	</div>
+		<div class="grid--outer">
+			<div class="grid--wrapper">
+					
+					<% popular(@events, 1).each do |event| %>
+				
+				
+				<div class="event">
+				<a href="/events/<%=event.id%>">
+					<div class="event--details">
+						<h2 class="event--title"><%= event.title %></h2>
+					</a>
+							<p>Le <span class="date"><%= formatted_date(event.date)%></span>  à <span class="date"> <%= formatted_time(event.time) %></span>
+							<p><%= event.address.titleize %></p>
+	
+							<p class = "event--creator"> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
+					</div>
+	
+									<!--IMAGE -->
+					
+					<div class="event--pic">
+								<a href="/events/<%=event.id%>">							
+									<%= image_tag "#{event.image.thumb.url}" %>
+								</a>
+					</div><!--IMAGE  fin -->
+				</div> <!-- event fin -->
+					<% end %>
+			</div> <!--grid--wrapper fin -->
+		</div> <!--grid-outer fin -->
+		

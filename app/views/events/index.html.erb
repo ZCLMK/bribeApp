@@ -8,6 +8,8 @@
 			<h1 class = "section--title"> Ce Week-End</h1>
 		</div>
 
+	
+	<div class="grid--outer">
 		<div class="grid--wrapper">
 				
 				<% @weekend[0..2].each do |event| %>
@@ -33,7 +35,7 @@
 			</div> <!-- event fin -->
 				<% end %>
 		</div> <!--section-wrapper fin -->
-
+	</div>
 		<!-- week end fin /concerts  debut-->
 
 
@@ -43,7 +45,7 @@
 				<h1 class = "section--title">Concerts</h1>
 			</div>
 
-										
+		<div class="grid--outer">
 			<section class="grid--wrapper">
 				<%  @concerts.each do |event|%>
 							
@@ -73,4 +75,4 @@
 				<% end %> <!-- events from category fin-->
 			<section><!-- category fin-->
 		</div>				<!--wrap fin -->
-
+	</div>

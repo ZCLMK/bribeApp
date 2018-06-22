@@ -13,7 +13,7 @@ $(document).on("turbolinks:load", () => {
 	  	  carousel.removeClass(bgClass)
 	  	  carousel.addClass(classes[counter])
 				counter < classes.length-1 ? counter ++ : counter = 0
-				
+	
 	}
 	
 	setInterval(switchBackground, 15000)

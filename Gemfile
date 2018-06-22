@@ -20,6 +20,7 @@ gem 'mini_magick', '>= 4.3'
 gem 'fog'
 gem 'carrierwave-aws'
 gem 'aws-sdk-s3', '~> 1'
+gem 'will_paginate', '~> 3.1.0'
 #-----------------------------
 
 # Use Puma as the app server

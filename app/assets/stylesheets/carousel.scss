@@ -1,9 +1,11 @@
 /* Carousel */
 .carousel{
+	position: absolute;
+	top: $top--nav--height;
 	height: 90vh;
 	width:100%;
 	z-index: 2;
-	top:$top--nav--height;
+	
 	@include flex-center;
 	margin-bottom:50px;
 	background:no-repeat;

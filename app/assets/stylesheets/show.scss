@@ -22,7 +22,6 @@
 		padding: 0px 10vw; /* à supprimer sur petits écrans (media query)*/
 		position:absolute;
 		top:0;
-		bottom:0;
 		left:0;
 		right:0;
 		display: flex;
@@ -58,15 +57,6 @@
 
 		.show--wrapper--middle{
 			padding:8px;
-			.title{
-				margin-bottom:5px;
-				font : {
-					family: 'Mina', sans-serif;
-					size:1.1em;
-					font-weight: 200;
-				}
-				
-
 			}
 			.description{
 				margin: 12px 0px ;
@@ -91,6 +81,8 @@
 			/* Suggestions */
 			
 			.events--suggestions {
+				width:100w;
+				
 				.grid--wrapper{
 					grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
 					grid-template-rows: repeat(auto-fit);
@@ -111,5 +103,14 @@
 			}	
 		}
 	}
-}
 
+
+	.title{
+		
+			margin: 25px 10vw;
+			font : {
+				family: 'Mina', sans-serif;
+				size: 1.1em;
+				weight: 200;
+		}
+	}

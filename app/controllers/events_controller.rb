@@ -46,7 +46,7 @@ class EventsController < ApplicationController
 
   def user_events
     @user = User.find(params[:id])
-	@events = Event.where(creator_id: @user.id).order('date asc')
+	  @events = Event.where(creator_id: @user.id).order('date asc').paginate(:page => params[:page], :per_page => 16)
   end 
 
   def subscribe
@@ -56,7 +56,7 @@ class EventsController < ApplicationController
   end
   
   def category
-	 @events = Event.where(category_id: params[:id])
+	 @events = Event.where(category_id: params[:id]).paginate(:page => params[:page], :per_page => 16)
 	 @category = Category.find(params[:id])
   end
  #------helpers------

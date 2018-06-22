@@ -26,18 +26,19 @@
 	right:0px;
 	bottom:0px;
 	top:35px;
-	padding: 3vh 10vw; /* à supprimer sur petits écrans (media query)*/
-	background-color: $bg--primary;
+	/*padding: 3vh 10vw;*/ /* à supprimer sur petits écrans (media query)*/
 	z-index: -1;  /*pour voir le bandeau*/
 	
 }
 .section--head--first{
-	margin-top:50px;
+	margin: 50px;
 }
 .section--head {
-	padding: 5px;
+
+	padding: 5px 40px;
 	width: 100%;
 	margin-top:10px;
+	text-align: right;
 	.section--title {
 				margin-bottom: 10px;
 				color:$font--primary;
@@ -47,16 +48,18 @@
 				text-decoration: none;
 			}
 }
-
-.grid--wrapper{
+.grid--outer{
+	@include flex-center;
+	width:100vw;
+	.grid--wrapper{
 		display:grid;
-		width:100%;
-		grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
 		grid-template-rows: repeat(auto-fit);
 		grid-row-gap: 20px;
 		grid-column-gap:20px;
 		z-index: 1;
 		.event {
+
 			height: 250px;
 			display: block;
 			overflow-y: hidden;
@@ -71,96 +74,59 @@
 				}
 			}
 			.event--details {
-				background-color: #fff;
+				background-color: $font--blue;
 				display: flex;
 				flex-direction: column;
 				align-items: flex-start;
 				padding: 1em;
 				text-align: justify;
 				height: 35%;
-				line-height: 1.2em;
-				@include font-basics(1em, 200, Verdana)
+				line-height: 1em;
+				@include font-basics(.8em, 200, $event--title--font, #fff);
 			}
 				.event--creator {
-					font: {
-						size: 1.1em;
-						color: $font--event--creator;
-						style: bold;
+					@include font-basics(.8em, 200, Verdana, #fff);
+
 					}
-				}
+					color:#fff;
+				
 				.event--title {
-					@include font-basics(1.35em, 150, $event--title--font);
+					@include font-basics(1.35em, 150, $event--title--font, #fff);
 				}
+			}
+		}
 	}
-}
+
 /* ------------------MEDIA QUERIES ------------------------*/
+
+
 
 /* Smartphones (portrait and landscape) ----------- */
 
-/*@media screen 
-and (max-width : 480px) {
 
-}
-
-/* iPads (portrait and landscape) ----------- */
-/*@media screen 
-and (max-width : 760px) {
-
-}*/
-/*@media all 
-and (min-width : 760px) 
-and (max-width : 1024px) {
-
-}*/
-
-/* Desktops and laptops ----------- */
-/*@media all 
-and (min-width : 1024px) {
-
-}
-*/
-
-
- /* iPads (portrait and landscape) 
-@media all and (min-width: 768px) and (max-width: 1024px) {}
-@media only screen and (min-width: 1224px) {}
-@media only screen and (min-width: 1824px) {}
-*/
-
-/*@media all and (min-width: 0px) and (max-width: 200px) {*/
-/* Styles */
-/*.home--events--wrap{
-	background-color: black;
-	/*background-color: rgb(252, 206, 138);*/
-		// #navbar{
-		// 	height:100vh;
-		// 	display:block;
-		// }
-/*	}
-}*/
-/*@media all and (min-width: 200px) and (max-width: 400px){
-.home--events--wrap{
-	background-color: blue;
+@media screen and (min-width: 0px) 
+and (max-width: 380px) {
+	.grid--outer{
+		padding: 0px 5vw;
+		  .grid--wrapper{
+     width: 90%;
+  	}
 	}
 }
 
-@media all and (min-width: 400px) and (max-width: 600px){
-.home--events--wrap{
-	background-color: yellow;
-	}
-}
+/* tablets (portrait and landscape) ----------- */
 
-@media all and (min-width: 600px)and (max-width: 800px){
-.home--events--wrap{
-	background-color: green;
-	}
-}
+@media screen and (min-width: 380px)
+and (max-width: 780px){
+      .grid--wrapper{
+   			width: 90%;
+    }
+  }
 
-@media all and (min-width: 800px){
-.home--events--wrap{
-	background-color: red;
-	}
-}
-*/
-
-
+@media screen and (min-width: 700px)
+{
+ 
+      .grid--wrapper{
+        width: 70%;
+    }
+  }

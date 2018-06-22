@@ -6,70 +6,60 @@
 	background-color: transparent !important;
 }
 
-/*smartphone*/
-
-
-/* Styles */
-.nav--top{
-	background-color: rgb(247, 223, 2);
-	#navbar{
-		background-color: rgb(247, 223, 2);
-		overflow: auto;
-		height:43vh;
-		ul.navbar-nav{
-			@include flex-center(column, space-around, center);
-		
-		.top--item{
-			font-size:1.8em;
-			text-align: left;
+.navbar{
+	margin:0;
+	height:$top--nav--height;
+	background-color: $bg--nav;
+	border-bottom: $font--blue 2px solid;
+			.container{
+			height:100%;
+					.navbar-header{
+		a{
+			@include font-basics(3em, 200, $event--title--font, $font--blue);
+			
 		}
-		.dropdown{
-			height:10vh;
-		
-		
-			.top--item{
-				font-size:1.8em;
-				padding: 0px;
-				#top--username{
-					display: none;
-				}
+	}
+
+	.navbar-collapse{
+			ul{
+				li{
+						a{
+					@include font-basics(1.5em, 200, $font--nav--item);
+					color:#fff;
+				}	
 			}
-			.drop--ul{
-				.dropdown--items{
-					margin-left:2vw;
-					background-color:red;
-					display: flex;
-					flex-direction: column;
-				}
-			}
-		}
-			}
-			ul.navbar-right{
-				.dropdown{
-					 a img{
-				width:50px;
-				height:50px;
-				 }
+			/* DROPDOWN ET AVATAR*/
+					.dropdown{ /* li */
+					height:$top--nav--height;
+					margin-bottom:15%;	
+						a.dropdown-toggle{
+							&:active{
+								color:grey;
+							}
+						}
+						.dropdown-menu{
+							background-color: $font--blue;
+							a{
+									&:hover{
+									color:$font--blue;
+									font-size: 1.8em;
+								}
+							}
+						}
+						a{
+							img{		/*Avatar*/
+							border-radius: 50%;
+								height:40px;
+								margin-top: -10px; /*center Avatar vertically*/
+							}	
+						}
+					}  			/* DROPDOWN ET AVATAR*/
 				}
 			}
 		}
 	}
+	
+	/*navbar-collapse end*/
+ /*navbar end */
 
-
-
-/* iPads (portrait and landscape) ----------- */
-// @media all and (min-width: 380px) 
-// and (max-width : 760px) {
-// 	.nav--top{
-// 		background-color: rgb(138, 235, 59);
-// 		// #navbar{
-// 		// }
-// 	}
-// }
-
-
-/* Desktops and laptops ----------- */
-// @media all 
-// and (min-width : 1024px) {
-// /* Styles */
-// }
+/*body > nav > div > div.navbar-collapse.collapse > ul.nav.navbar-nav.navbar-right > li > a > img*/

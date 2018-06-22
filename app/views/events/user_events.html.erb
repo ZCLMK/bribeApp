@@ -12,7 +12,7 @@
 				<% end %>
 						<h1 class="organizer--username"><%=@user.username%></h1>		
 			</div>
-						
+		<div class="grid--outer">
 			<div class="grid--wrapper">
 
 				<% @events.each do |event| %>
@@ -25,16 +25,17 @@
 											</a>
 												<p>Le <span class="date"><%= formatted_date(event.date)%></span>  à <span class="date"> <%= formatted_time(event.time) %></span>
 												<p><%= event.address.titleize %></p>
-												</div>
-								<div class="event--pic">   
+							</div>
+							<div class="event--pic">   
 											<%= image_tag "#{event.image.thumb.url}"%>
 											<button>S'incrire</button>
-
+							</div>			
+						</div>
+				
 				<% end %>
-								</div>
-							</div>
-						</div>			
-		<!-- grid end -->
+			</div>	<!-- grid end -->
+		</div>		<!-- grid--outer end -->	
+	<%= will_paginate @events %>
 		</div>
 	</div>
 
