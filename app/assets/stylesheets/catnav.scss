@@ -1,0 +1,12 @@
+.category--nav{
+	display: block;
+	background: $font--blue;
+	height: $top--nav--height;
+	z-index:-1;
+	padding: 15px;
+	.section--title{
+		font-size:2em;
+	}
+}
+
+/* Italique; effet inversion, et moins important*/

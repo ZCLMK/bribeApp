@@ -21,6 +21,7 @@ gem 'fog'
 gem 'carrierwave-aws'
 gem 'aws-sdk-s3', '~> 1'
 gem 'will_paginate', '~> 3.1.0'
+gem 'will-paginate-i18n'
 #-----------------------------
 
 # Use Puma as the app server

@@ -44,10 +44,7 @@
 				} 
 				.event--info{
 					width:50%;
-					display:flex;
-					flex-direction: column;
-					justify-content: space-around;
-					align-items: center;
+					@include flex-center(column, space-around, center);
 					padding:12px;
 					.show--event--title{
 							@include font-basics(3em, 100, $event--title--font);	
@@ -57,7 +54,7 @@
 
 		.show--wrapper--middle{
 			padding:8px;
-			}
+	
 			.description{
 				margin: 12px 0px ;
 
@@ -66,51 +63,111 @@
 				display: flex;
 				justify-content: flex-start;
 				margin: 8px 0px;
-				img{
-					width:65px;
+				.attendee{
+				display:flex;
+				align-items: center;
+				flex-direction: column;
+				align-content: center;
+						img{
+					width:6vw;
 					border-radius:50%;
 					margin: 5px 0px;
 				}
 			}
-			.attendee{
-				display:flex;
-				align-items: center;
-				flex-direction: column;
-				align-content: center
-			}
+		}
+				.title{
+						font : {
+							family: 'Mina', sans-serif;
+							size: 1.3em;
+							weight: 200;
+					}
+				}
+	}
+}
 			/* Suggestions */
-			
 			.events--suggestions {
 				width:100w;
-				
-				.grid--wrapper{
-					grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-					grid-template-rows: repeat(auto-fit);
-					padding:0px;
-					grid-gap{
-						grid-gap: .5vw 1vh;
+				margin-top: 15px;
+					.grid--outer{
+								.grid--wrapper{
+									.event {
+										.event--details {
+								background-color: #fff
+						}
 					}
-					.event{
-						height:210px;
-						.event--details p{
-							
-							font : {
-								size:1em;
-							}
+			  }
+			}
+		}
+}
+
+/* ------------------MEDIA QUERIES ------------------------*/
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
+
+
+@media screen and (min-width: 0px) 
+and (max-width: 380px) {
+.content--wrapper{
+		padding: 0px;
+			.show--wrapper{
+				width:95%;	
+				.show--wrapper--top{
+					@include flex-center(column);
+					.event--picture{
+						width:100%;
+					}
+					.event--info{
+						@include flex-center(column, space-around, flex-start);
+						width:100%;
+						.show--event--title{
+							font-size: 1.5em;
 						}
 					}
 				}
-			}	
+				.show--wrapper--middle{
+					.attendees{
+						.attendee{
+								img{
+							width:30px;
+						}
+					}
+				}
+			}
 		}
 	}
+}
 
+/* tablets (portrait and landscape) ----------- */
 
-	.title{
-		
-			margin: 25px 10vw;
-			font : {
-				family: 'Mina', sans-serif;
-				size: 1.1em;
-				weight: 200;
-		}
+@media screen and (min-width: 380px)
+and (max-width: 780px){
+	 .content--wrapper{
+			padding: 0px;
+				.show--wrapper{
+					width:90%;				
+					
+					.show--wrapper--top{
+					@include flex-center(column);
+					.event--picture{
+						width:60%;
+					}
+					.event--info{
+						width: 100%;
+						
+						@include flex-center(column, space-around, flex-start);
+						.show--event--title{
+							font-size: 2em;
+						}
+					}
+				}
+			}
 	}
+}
+/*@media screen and (min-width: 700px)
+{
+ 
+  
+  }
+*/

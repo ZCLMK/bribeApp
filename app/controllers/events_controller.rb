@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-	skip_before_action :verify_authenticity_token
- 	before_action :find_event, only:[:show, :subscribe, :edit,  :update]
+	  skip_before_action :verify_authenticity_token
+ 	  before_action :find_event, only:[:show, :subscribe, :edit,  :update]
   	before_action :event_params, only:[:create, :edit, :update]
   	before_action :weekend, only:[:index]
   
@@ -11,10 +11,10 @@ class EventsController < ApplicationController
   end
   
   def show
-		@attendees  = @event.attendees
-		@other_events_by_creator = Event.where('creator_id' => @event.creator_id).limit(3) #Trois suggestions d'evenements par le même organisateur  
+		@attendees  = @event.attendees.limit(6)
+		@other_events_by_creator = Event.where('creator_id' => @event.creator_id).where("id != ?", @event.id).limit(3) #Trois suggestions d'evenements par le même organisateur  
 		@maps_api_key = ENV['MAP_API_KEY']
-		end
+	end
     
   def new 
     @event = Event.new

@@ -10,31 +10,39 @@
 	margin:0;
 	height:$top--nav--height;
 	background-color: $bg--nav;
-	border-bottom: $font--blue 2px solid;
 			.container{
 			height:100%;
 					.navbar-header{
-		a{
-			@include font-basics(3em, 200, $event--title--font, $font--blue);
-			
-		}
-	}
+						a{
+							@include font-basics(3em, 200, $event--title--font, $font--blue);
+							
+						}
+					}
+
 
 	.navbar-collapse{
 			ul{
+				margin-top: 0px;
+				margin-bottom: 0px;
+				background-color: $bg--primary;
 				li{
 						a{
-					@include font-basics(1.5em, 200, $font--nav--item);
+					@include font-basics(1.5em, 600, $font--nav--item);
 					color:#fff;
+						img{
+								border-radius: 50%;
+								height:40px;
+					}
 				}	
 			}
 			/* DROPDOWN ET AVATAR*/
-					.dropdown{ /* li */
-					height:$top--nav--height;
-					margin-bottom:15%;	
-						a.dropdown-toggle{
-							&:active{
-								color:grey;
+					.open{ /* li */
+						a{ 
+							color:#fff;
+								dropdown-toggle{
+								&:hover{
+									color:grey;
+								}
 							}
 						}
 						.dropdown-menu{
@@ -63,3 +71,42 @@
  /*navbar end */
 
 /*body > nav > div > div.navbar-collapse.collapse > ul.nav.navbar-nav.navbar-right > li > a > img*/
+
+/* mettre dans media 			
+
+
+	
+	
+/* ------------------MEDIA QUERIES ------------------------*/
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
+
+
+@media screen and (min-width: 0px) 
+and (max-width: 380px) {
+	.grid--outer{
+		padding: 0px 5vw;
+		  .grid--wrapper{
+     width: 90%;
+  	}
+	}
+}
+
+/* tablets (portrait and landscape) ----------- */
+
+@media screen and (min-width: 380px)
+and (max-width: 768px){
+      .grid--wrapper{
+   			width: 90%;
+    }
+  }
+
+@media screen and (min-width: 768px){
+ #navbar{
+				ul{
+						height: $top--nav--height;
+					}
+			}
+}

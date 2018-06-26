@@ -3,8 +3,7 @@
 	<div class="content--wrap">
 
 	<!-- week-end  -->
-
-		<div class="section--head section--head--first">
+		<div class="section--head " id="section--head--first" >
 			<h1 class = "section--title"> Ce Week-End</h1>
 		</div>
 
@@ -20,7 +19,7 @@
 					<h2 class="event--title"><%= event.title %></h2>
 				</a>
 						<p>Le <span class="date"><%= formatted_date(event.date)%></span>  à <span class="date"> <%= formatted_time(event.time) %></span>
-						<p><%= event.address.titleize %></p>
+						<p class ="event--address"><%= event.address.titleize %></p>
 
 						<p class = "event--creator"> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
 				</div>
@@ -54,7 +53,7 @@
 							<div class="event--details">
 									<a href="/events/<%=event.id%>" class="event--title"><%= event.title %></h2></a>
 										<p>Le <span class="date"><%= formatted_date(event.date)%> </span>à <span class="date"><%= formatted_time(event.time)%> </span><p>
-										<p><%= event.address.titleize %></p>
+										<p class ="event--address"><%= event.address.titleize %></p>
 
 										<p> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
 						</a>

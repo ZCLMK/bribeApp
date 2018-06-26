@@ -48,7 +48,6 @@
 						
 						<div class="attendee">
 							<p><%= image_tag  "#{ attendee.avatar.thumb.url}" %></p>
-							<p><%=  attendee.username %></p>
 						</div>
 							
 						<% end %>	
@@ -58,10 +57,11 @@
 					<div id="map" data-api="<%= @maps_api_key %>">
 					
 					</div>
+			<h3 class="title">Quelques évenements par le même organisateur</h3>
 			</section> <!--show wrapper middle end-->
 		</div> <!-- show wrapper fin-->
 			<div class="events--suggestions"> <!-- suggestions start-->
-				<h3 class="title">Quelques évenements par le même organisateur</h3>
+			
 				<div class="grid--outer">
 					<div class="grid--wrapper">
 						
