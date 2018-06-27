@@ -57,7 +57,7 @@
 		grid-template-columns: repeat(auto-fill, minmax(215px,1fr));
 		grid-template-rows: repeat(auto-fit);
 		grid-row-gap: 20px;
-		grid-column-gap:20px;
+		grid-column-gap:35px;
 		z-index: 1;
 		.event {
 			max-width: 295px;
@@ -109,8 +109,6 @@
 
 /* ------------------MEDIA QUERIES ------------------------*/
 
-
-
 /* Smartphones (portrait and landscape) ----------- */
 
 
@@ -120,6 +118,7 @@ and (max-width: 500px) {
 		
 		  .grid--wrapper{
      max-width: 295px;
+     grid-column-gap:15px;
   	}
 	}
 }
@@ -131,6 +130,7 @@ and (max-width: 780px){
 .grid-outer{
 		 .grid--wrapper{
    			width: 100%;
+   			grid-column-gap:15px;
     }
 	}
  }

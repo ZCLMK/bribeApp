@@ -26,6 +26,7 @@
 		.navbar-right{
 			li{
 				a{
+					line-height:1.5em;
 					padding:0px;
 				}
 			}
@@ -34,26 +35,24 @@
 			ul{
 				margin-top: 0px;
 				margin-bottom: 0px;
+			
 				li{
+							
+							@include font-basics(1.5em, 600, $font--nav--item, $font--blue);
 						a{
-					@include font-basics(1.5em, 600, $font--nav--item);
-					color:#fff;
-					background-color: $bg--primary;
+							color:#fff;
+						}
 						img{
 								border-radius: 50%;
 								height:40px;
 					}
-				}	
-			}
+				}
 			/* DROPDOWN ET AVATAR*/
 					.open{ /* li */
 					background-color:$font--blue;
 						a{ 
 							color:#fff;
 								dropdown-toggle{
-								&:hover{
-									color:grey;
-								}
 							}
 						}
 						.dropdown-menu{
@@ -61,20 +60,20 @@
 							li{
 									background-color: $font--blue;
 							a{
+								line-height: 1.5em;
 									&:hover{
-									color:$font--blue;
+									color:#fff;
 									font-size: 2em;
-								}
-							}
-							}
-						}
-						a{
-							img{		/*Avatar*/
-							border-radius: 50%;
+									}
+									img{		/*Avatar*/
+								border-radius: 50%;
 								height:40px;
 								margin-top: -10px; /*center Avatar vertically*/
 							}	
+								}
+							}
 						}
+					
 					}  			/* DROPDOWN ET AVATAR*/
 				}
 			}
@@ -100,23 +99,40 @@
 
 @media screen and (min-width: 0px) 
 and (max-width: 380px) {
-	.grid--outer{
-		padding: 0px 5vw;
-		  .grid--wrapper{
-     width: 90%;
-  	}
-	}
+	
+				li{
+					background-color: $font--blue;
+					@include font-basics(1.1em, 600, $font--nav--item, #fff);
+					&:hover{
+						color:#fff;
+						@include font-basics(1.3em, 600, $font--nav--item, $font--blue);
+					}
+				.grid--outer{
+					padding: 0px 5vw;
+					  .grid--wrapper{
+			     width: 90%;
+			  	}
+				}
+			}
 }
 
 /* tablets (portrait and landscape) ----------- */
 
 @media screen and (min-width: 380px)
 and (max-width: 768px){
+	
+				li{
+					background-color: $font--blue;
+					@include font-basics(1.1em, 600, $font--nav--item, #fff);
+					&:hover{
+						color:#fff;
+						@include font-basics(1.3em, 600, $font--nav--item, $font--blue);
+					}
       .grid--wrapper{
    			width: 90%;
     }
   }
-
+}
 @media screen and (min-width: 768px){
  #navbar{
 				ul{

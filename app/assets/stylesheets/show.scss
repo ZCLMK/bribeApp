@@ -47,7 +47,9 @@
 					@include flex-center(column, space-around, center);
 					padding:12px;
 					.show--event--title{
-							@include font-basics(3em, 100, $event--title--font);	
+						line-height: .9em;
+						text-align:center;
+							@include font-basics(2.2em, 100, $event--title--font);	
 				}
 			}			
 		}
@@ -121,8 +123,10 @@ and (max-width: 380px) {
 					.event--info{
 						@include flex-center(column, space-around, flex-start);
 						width:100%;
+						padding: 0px 15vw;
 						.show--event--title{
 							font-size: 1.5em;
+							text-align:left;
 						}
 					}
 				}
@@ -155,6 +159,7 @@ and (max-width: 780px){
 					}
 					.event--info{
 						width: 100%;
+						@include flex-center;
 						
 						@include flex-center(column, space-around, flex-start);
 						.show--event--title{
