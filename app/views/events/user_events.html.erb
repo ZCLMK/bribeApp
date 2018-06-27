@@ -5,9 +5,9 @@
 
 				<% if !@user.avatar.file.nil? %>
 				
-						<p class="organizer--avatar"><%=image_tag(@user.avatar.thumb.url)%></p>
+						<p><%=image_tag(@user.avatar.thumb.url), class: "organizer--avatar"%></p>
 						<% else %>
-						<p class="organizer--avatar"><%=image_tag("avatar_default.jpeg")%></p>
+						<p><%=image_tag("avatar_default.jpeg"), class: "organizer--avatar"%></p>
 				
 				<% end %>
 						<h1 class="organizer--username"><%=@user.username%></h1>		

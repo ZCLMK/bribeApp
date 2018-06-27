@@ -54,13 +54,13 @@
 	width:100vw;
 	.grid--wrapper{
 		display:grid;
-		grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(215px,1fr));
 		grid-template-rows: repeat(auto-fit);
 		grid-row-gap: 20px;
 		grid-column-gap:20px;
 		z-index: 1;
 		.event {
-
+			max-width: 295px;
 			height: 215px;
 			display: block;
 			overflow-y: hidden;
@@ -89,19 +89,19 @@
 						line-height:.5em;
 						color:green;
 					}
-				@include font-basics(.8em, 200, $font--event--creator, $font--blue);
+				@include font-basics(.8em, 200, $font--event--creator, black);
 				.date{
-						@include font-basics(.95em, 600, $font--event--creator, $font--blue);
+						@include font-basics(.95em, 600, $font--event--creator, black);
 				}
 					.event--creator {
-					@include font-basics(1em, 200, $font--event--creator, $font--blue);
+					@include font-basics(1em, 200, $font--event--creator, black);
 					}
 				
 			}
 					color:#fff;
 				
 				.event--title {
-					@include font-basics(1.25em, 150, $event--title--font,$font--blue);
+					@include font-basics(1.25em, 150, $event--title--font,black);
 				}
 			}
 		}
@@ -115,27 +115,29 @@
 
 
 @media screen and (min-width: 0px) 
-and (max-width: 380px) {
+and (max-width: 500px) {
 	.grid--outer{
-		padding: 0px 5vw;
+		
 		  .grid--wrapper{
-     width: 90%;
+     max-width: 295px;
   	}
 	}
 }
 
 /* tablets (portrait and landscape) ----------- */
 
-@media screen and (min-width: 380px)
+@media screen and (min-width: 500px)
 and (max-width: 780px){
-      .grid--wrapper{
-   			width: 90%;
+.grid-outer{
+		 .grid--wrapper{
+   			width: 100%;
     }
-  }
+	}
+ }
 
 @media screen and (min-width: 700px)
 {
       .grid--wrapper{
-        width: 70%;
+        width: 80%;
     }
   }

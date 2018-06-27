@@ -21,14 +21,24 @@
 
 
 	.navbar-collapse{
+		/*Seulement navbar right ----------------------------------*/
+
+		.navbar-right{
+			li{
+				a{
+					padding:0px;
+				}
+			}
+		}
+			/*navbar right -----------------------------------------*/
 			ul{
 				margin-top: 0px;
 				margin-bottom: 0px;
-				background-color: $bg--primary;
 				li{
 						a{
 					@include font-basics(1.5em, 600, $font--nav--item);
 					color:#fff;
+					background-color: $bg--primary;
 						img{
 								border-radius: 50%;
 								height:40px;
@@ -37,6 +47,7 @@
 			}
 			/* DROPDOWN ET AVATAR*/
 					.open{ /* li */
+					background-color:$font--blue;
 						a{ 
 							color:#fff;
 								dropdown-toggle{
@@ -46,12 +57,15 @@
 							}
 						}
 						.dropdown-menu{
-							background-color: $font--blue;
+						
+							li{
+									background-color: $font--blue;
 							a{
 									&:hover{
 									color:$font--blue;
-									font-size: 1.8em;
+									font-size: 2em;
 								}
+							}
 							}
 						}
 						a{

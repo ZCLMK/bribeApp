@@ -3,9 +3,14 @@
 	background: $font--blue;
 	height: $top--nav--height;
 	z-index:-1;
-	padding: 15px;
-	.section--title{
-		font-size:2em;
+	opacity:0.8;
+	.container{
+		text-align: justify;
+		padding:5px 0px;
+			.section--title{
+				font-size:2em;
+				
+		}
 	}
 }
 
