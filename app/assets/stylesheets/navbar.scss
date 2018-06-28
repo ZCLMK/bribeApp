@@ -37,7 +37,6 @@
 				margin-bottom: 0px;
 			
 				li{
-							
 							@include font-basics(1.5em, 600, $font--nav--item, $font--blue);
 						a{
 							color:#fff;
@@ -49,28 +48,26 @@
 				}
 			/* DROPDOWN ET AVATAR*/
 					.open{ /* li */
-					background-color:$font--blue;
 						a{ 
 							color:#fff;
 								dropdown-toggle{
 							}
 						}
 						.dropdown-menu{
-						
 							li{
 									background-color: $font--blue;
-							a{
-								line-height: 1.5em;
-									&:hover{
-									color:#fff;
-									font-size: 2em;
+								
+								a{
+									line-height: 1.5em;
+										&:hover{
+											color:$font--blue;
+										}
+										img{		/*Avatar*/
+									border-radius: 50%;
+									height:40px;
+									margin-top: -10px; /*center Avatar vertically*/
+								}	
 									}
-									img{		/*Avatar*/
-								border-radius: 50%;
-								height:40px;
-								margin-top: -10px; /*center Avatar vertically*/
-							}	
-								}
 							}
 						}
 					
@@ -103,10 +100,25 @@ and (max-width: 380px) {
 				li{
 					background-color: $font--blue;
 					@include font-basics(1.1em, 600, $font--nav--item, #fff);
-					&:hover{
-						color:#fff;
-						@include font-basics(1.3em, 600, $font--nav--item, $font--blue);
+				}
+				#navbar{
+					ul{
+						.open{
+									.dropdown-menu{
+										background-color: #fff;
+								li{
+									&:hover{
+										a{
+											color: $font--blue;
+										}
+										background-color: #fff;
+										
+									}
+								}
+							}
+						}
 					}
+				}
 				.grid--outer{
 					padding: 0px 5vw;
 					  .grid--wrapper{
@@ -114,7 +126,7 @@ and (max-width: 380px) {
 			  	}
 				}
 			}
-}
+
 
 /* tablets (portrait and landscape) ----------- */
 
@@ -123,20 +135,39 @@ and (max-width: 768px){
 	
 				li{
 					background-color: $font--blue;
+					
 					@include font-basics(1.1em, 600, $font--nav--item, #fff);
-					&:hover{
-						color:#fff;
-						@include font-basics(1.3em, 600, $font--nav--item, $font--blue);
+				}
+				#navbar{
+					ul{
+						.open{
+									.dropdown-menu{
+										background-color: #fff;
+								li{
+									&:hover{
+										a{
+											color: $font--blue;
+										}
+										background-color: #fff;
+										
+									}
+								}
+							}
+						}
 					}
+				}
+				/*#navbar > ul > li.open > ul > li:nth-child(1)*/
       .grid--wrapper{
    			width: 90%;
     }
   }
-}
+
 @media screen and (min-width: 768px){
  #navbar{
 				ul{
 						height: $top--nav--height;
 					}
+				
+				
 			}
 }

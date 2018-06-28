@@ -1,22 +1,26 @@
-<div class="form--wrapper">
 
+	<div class="carousel carousel--img--two"> <!-- absolute positioning -->
+	<div class="content--wrapper--form">
+		<div class="form--wrapper">
+			
+			<div class="form--title"> Mot de passe oublié?</div>
 
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-	<div class="form">
-	<div class="field">
-		<%= f.label :email %><br />
-		<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-	</div>
-
-		<div class="actions">
-			<%= f.submit "Send me reset password instructions" %>
+			
+	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+	  <%= devise_error_messages! %>
+		<div class="form">
+			
+			<div class="field ff">
+				<%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: :email %>
+			</div>
+	
+			<div class="actions">
+				<%= f.submit "Recevoir les instructions" %>
+			</div>
+			
 		</div>
-		
+		<% end %>
+				
+		</div>
 	</div>
-	<% end %>
-
 </div>
-<%= render "devise/shared/links" %>

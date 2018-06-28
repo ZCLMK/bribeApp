@@ -5,7 +5,7 @@ class Event < ApplicationRecord
     has_and_belongs_to_many :attendees, class_name: "User"
   
 	validates :title, :description, :date, :address, presence: true
-	validates :title, uniqueness: true
+	validates :title, uniqueness: true, length: { maximum: 55 }
 	validates :image, presence: false #Pour seed
 	mount_uploader :image, ImageUploader
 

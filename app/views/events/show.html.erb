@@ -15,7 +15,7 @@
 				<h1 class="show--event--title"><%= @event.title %></h1>
 						<p>Le <span class="date"><%= formatted_date(@event.date)%></span>  à <span class="date"> <%= formatted_time(@event.time) %></span>
 						<p id="event--address"><%= @event.address %></p>
-						<p>Créé par <%= @event.creator.username %></p>
+						<p class="event--creator">Créé par <a href="/users/<%=@event.creator_id%>/events"><%= @event.creator.username %></a></p>
 
 				<!-- Inscription start-->      
 				<% if user_signed_in?%>

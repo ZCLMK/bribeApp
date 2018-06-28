@@ -3,19 +3,16 @@
 			
 	<div class="content--wrapper--form">
 
-		<div class="form--title">
-			<h2 >Inscription</h2>
-		</div>
-
 		<div class="form--wrapper">	
-		
-		
-		
+			<div class="form--title">
+				<h2 >Inscription</h2>
+			</div>
+			
 			<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 			<%= devise_error_messages! %>
 						<div class="form">
 						
-							<div class="field ff">
+						<div class="field ff">
 							<%#= f.label :username %><br />
 							<%= f.text_field :username, autofocus: true, placeholder: :pseudo%>
 						</div>

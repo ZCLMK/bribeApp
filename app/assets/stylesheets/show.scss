@@ -46,6 +46,15 @@
 					width:50%;
 					@include flex-center(column, space-around, center);
 					padding:12px;
+				#event--address{
+					text-align:center;
+				}
+				.event--creator {
+						a{
+							@include font-basics(.9em, 400, $font--event--title, $font--blue);
+						}
+					}
+					
 					.show--event--title{
 						line-height: .9em;
 						text-align:center;

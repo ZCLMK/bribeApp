@@ -1,5 +1,5 @@
 <div class="content--wrap">
-	<div class="section--head category--nav">
+	<div class="category--nav">
 		<div class="container">
 				<h1 class = "section--title"><%=@category.title %></h1>
 		</div>
@@ -14,7 +14,7 @@
 										<a href="/events/<%=event.id%>" class="event--title"><%= event.title %></h2></a>
 						<p>Le <span class="date"><%= formatted_date(event.date)%></span>  à <span class="date"> <%= formatted_time(event.time) %></span>
 											
-											<p> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
+											<p class = "event--creator"> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
 											
 							</div>
 

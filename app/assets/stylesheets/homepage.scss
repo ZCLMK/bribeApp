@@ -1,12 +1,15 @@
 /* Carousel */
 //  image actuelle du carousel
 #button--connect{
-	@include font-basics(1.2em, 200, $font--event--creator,#fff);
-	border-radius:5px;
+		@include font-basics(1em, 200, $font--event--creator,#fff);
+		
+	border-radius:3px;
 	background-color:$bg--two;
 	border:none;
 	text-decoration:none;
 	font-style:normal;
+	text-align: center;
+	vertical-align: middle;
 	&:hover{
 		color:$font--primary;
 		background-color:rgb(84, 39, 189);

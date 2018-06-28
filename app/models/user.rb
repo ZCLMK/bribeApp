@@ -2,13 +2,13 @@ class User < ApplicationRecord
   
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :confirmable, :lockable, :timeoutable and :omniauthable, :recoverable,
   attr_accessor :login
  has_many :created_events, class_name: "Event", foreign_key: "creator_id"
  has_and_belongs_to_many :attended_evts, class_name:"Event"
                           
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+          :rememberable, :trackable, :validatable
          
   validates :username, presence: true, uniqueness: {case_insensitive: false}, format: {with: /\A[a-zA-Z0-9_\.]*\z/}
 

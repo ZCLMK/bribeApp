@@ -32,7 +32,7 @@
 
 	padding: 0px 40px;
 	width: 100%;
-	margin: 0px 0px 30px 0px;
+	margin: 15px 0px;
 	float:left;
 
 	
@@ -46,9 +46,9 @@
 				text-decoration: none;
 			}
 }
-#section--head--first{
-	margin-top: -25px;
-}
+/*#section--head--first{
+
+}*/
 .grid--outer{
 	@include flex-center;
 	width:100vw;
@@ -94,7 +94,9 @@
 						@include font-basics(.95em, 600, $font--event--creator, black);
 				}
 					.event--creator {
-					@include font-basics(1em, 200, $font--event--creator, black);
+						a{
+							@include font-basics(.9em, 400, $font--event--title, $font--blue);
+						}
 					}
 				
 			}
