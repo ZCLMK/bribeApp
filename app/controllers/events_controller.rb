@@ -14,7 +14,7 @@ class EventsController < ApplicationController
 		@attendees  = @event.attendees.limit(6)
 		@other_events_by_creator = Event.where('creator_id' => @event.creator_id).where("id != ?", @event.id).limit(3) #Trois suggestions d'evenements par le même organisateur  
 		@maps_api_key = ENV['MAP_API_KEY']
-	end
+  end
     
   def new 
     @event = Event.new

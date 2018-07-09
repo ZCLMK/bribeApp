@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   devise_for :users
   get 'users/:id/events' => 'events#user_events' , as: :user_events
   get 'users/sign_out' => 'home#index'
-  get 'events/:id' => 'events#show'
+  #get 'events/:id' => 'events#show'
+  #get 'events/new' => 'events#new'
   post 'events/:id/subscribe' => 'events#subscribe'
   get 'events/category/:id' => "events#category"
   

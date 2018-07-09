@@ -10,21 +10,9 @@
 	@include flex-center;
 	background:no-repeat;
 	background-size: cover;
-	
 	//  image actuelle du carousel
 
-		.home--welcome--box{
-			text-align: center;
-			@include flex-center(column, space-around, center);
-			height:200px;
-			color:#fff;
-			text-decoration: none;
-			z-index:2;
-			font : {
-				size:3em;
-				weight:400;
-					}
-				}
+
 }
 
 .carousel--img--one{
@@ -35,7 +23,6 @@
 }
 .carousel--img--three{
 	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/groupe.jpg?versionId=null);
-	background-size: 120%;
 }
 .carousel--img--four{
 	background-image: url(https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/poterie.jpg?versionId=null);

@@ -28,7 +28,7 @@
 				
 				<div class="event--pic">
 							<a href="/events/<%=event.id%>">							
-								<%= image_tag "#{event.image.thumb.url}" %>
+								<%= image_tag "#{display_default_image(event)}" %>
 							</a>
 				</div><!--IMAGE  fin -->
 			</div> <!-- event fin -->
@@ -54,8 +54,8 @@
 									<a href="/events/<%=event.id%>" class="event--title"><%= event.title %></h2></a>
 										<p>Le <span class="date"><%= formatted_date(event.date)%> </span>à <span class="date"><%= formatted_time(event.time)%> </span><p>
 										<p class ="event--address"><%= event.address.titleize %></p>
-
-										<p> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
+											
+										<p class="event--creator"> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
 						</a>
 								</div>
 							

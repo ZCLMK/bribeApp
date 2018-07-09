@@ -1,10 +1,9 @@
 /* Carousel */
 //  image actuelle du carousel
-#button--connect{
-		@include font-basics(1em, 200, $font--event--creator,#fff);
+#button--connect, #logout, #new--event{
 		
+	@include font-basics(.6em, 200, $font--event--creator,#30332f);
 	border-radius:3px;
-	background-color:$bg--two;
 	border:none;
 	text-decoration:none;
 	font-style:normal;
@@ -16,31 +15,58 @@
 	}
 }
 
-.home--events--wrap{
-		display:block;
-		padding: 15px 10vw; /* à supprimer sur petits écrans (media query)*/
-		background-color: $bg--primary;
-		z-index: -1;  /*pour voir le bandeau*/
-		
-		.home--section--head{
+#button--connect{
+	background-color: $bg--primary;
+}
 
-			padding: 5px;
-			width: 100%;
-			.home--section--title {
-				color:$font--primary;
-				font-size: 3.4em;
-				font-weight:200;
-				font-family: 'Martel Sans', sans-serif;
-	}	
+
+
+#new--event{
+	background-color: $bg--nav;
+}
+
+
+.carousel{
+	.home--welcome--box{
+		text-align: center;
+		@include flex-center(column, space-around, center);
+		height:200px;
+		color:#fff;
+		text-decoration: none;
+		z-index:2;
+		font : {
+			size:8vw;
+			weight:400;
+				}
+			}	
 		}
-		
-}
-/*
-.carousel--img--one{
-}
-.carousel--img--two{
-}
-.carousel--img--three{
+
+
+@media screen and (min-width: 0px) 
+and (max-width: 500px) {
+	.carousel{
+		.home--welcome--box{
+			font-size: 1.8em;
+		}
+	}
 }
 
-*/
+/* tablets (portrait and landscape) ----------- */
+
+@media screen and (min-width: 500px)
+and (max-width: 780px){
+ 	.carousel{
+		.home--welcome--box{
+			font-size: 2.3em;
+		}
+	}
+ }
+
+@media screen and (min-width: 700px)
+{
+     	.carousel{
+		.home--welcome--box{
+		font-size: 3.2em;
+		}
+	}
+  }

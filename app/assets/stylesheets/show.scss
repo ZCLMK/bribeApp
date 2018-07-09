@@ -17,6 +17,7 @@
 }
 
 .content--wrapper{
+		min-width:260px;
 		background-color: $bg--primary;
 		margin-top:50px;
 		padding: 0px 10vw; /* à supprimer sur petits écrans (media query)*/

@@ -1,6 +1,6 @@
 require 'faker'
 
-=begin
+
 adresses = [
 "place marc sangnier, 95500 Gonesse",
 "1 Rue Albert Doyen, 94000 Créteil",
@@ -25,17 +25,12 @@ adresses = [
 ]
 
 
-categories = [
-	'Concerts',
-	'Expos',
-	'Spectacles',
-	"Sport", 
-	"Loisirs",
-	"Nature" 
-	]
+=begin
 	
-users = [14,15,16,17,8,18,19,4,20,21,22,9,23,3,10,11,12,13,24,25]
-
+	5.times do |i|
+		Category.create(id: i+1, title: categories[i])
+	end 
+=end 
 
 
 		
@@ -57,14 +52,14 @@ sports = [ #19
 		"Equiation: concours de dressage",
 		"Crossfit en folie",
 		"Initiation à l'aviron",
-			]
-
-
-6.times do |i|
-	Category.create(title: categories[i])
-end 
-
-
+		"Concours de saut à l'élastique",
+		"Course de charette",
+		"Championnat du monde de dépoussiérage",
+		"Meeting de lancé d'orange sanguine",
+		"Combat mi-lourd Victor Tatête contre Jim Al",
+		"Touch Rugby"
+		]
+			
 concerts = [ #17
 		"concert de hip hop", 
 		"concert de clarinette",
@@ -85,8 +80,7 @@ concerts = [ #17
 		"Chorale La voix de la vérité"
 		]
 
-
-activites = [ #46
+loisirs = [ #46
 	
 	"Initiation à la plongée",
 	"Qi Gong pour petits et grands",
@@ -96,9 +90,6 @@ activites = [ #46
 	"Contes et Légendes de Dordogne", 
 	"Contes et Légendes traditionnels", 
 	"Atelier bricolage et recyclage",
-	"Sensibilisation aux recyclage", 
-	"Balade en forêt",
-	"Cueillette aux champignons",
 	"Initiation à la poterie",
 	"Atelier couture",
 	"Atelier ticot", 
@@ -136,11 +127,60 @@ activites = [ #46
 	"Débat, comment mobiliser les français",
 	]
 	
-		cats = [2, 3, 5, 6]
-=end 
-
+nature = [
+	"Sensibilisation aux recyclage", 
+	"Balade en forêt",
+	"Cueillette aux champignons",
+	"Les oiseaux d'Ile de France",
+	"Randonnée à fontainebleau",
+	"De lardy à Etampes",
+	"Les trois pignons, par Cecile et Laurent",
+	"De Malesherbes à Boutigny",
+	"A pied Entre l'Orge et la Renarde",
+	" Le Viaduc des Fauvettes et la Forêt de Gif-sur-Yvette",
+	"Bazoches-sur-Guyonne - Les Mesnuls - Montfort-Lamaury ",
+	"Le Sentier des Belvédères ",
+	"La Forêt de la Madeleine et l'Abbaye de Port-Royal-des-Champs",
+	"Les Coteaux de la Juine ",
+	"La Roche-Guyon: le château, la forêt, les falaises à silex ",
+	" La Fontaine Sainte-Anne ",
+	"A pied Les Etangs du Grand Voyeux et les Trois Rivières ",
+	"La Forêt de Carnelle à partir de Viarmes",
+	"La Vallée de l'Oise des peintres paysagistes"]
 	
-Event.each do |e|
+spectacles = [
+	"Les fourberies de Scapin",
+	"Saigon de Jean Bikutsi",
+	'Sliders mondes parallèles',
+	"Un coquelicot fleurit quand il l'entend",
+	"Entrer dans la légende, Agnès Tountoun",
+	"Flotte petit bateau qui flotte, Alfred Trophret",
+	"Les femmes viennent de Vénus, les hommes aiment le foot",
+	"Pied joints dans la merde de Jack Bauer",
+	"Des Carnicoles au atomivores",
+	"La lutte, Jean Malet",
+	"Le père n'a plus toute sa tête, Khalil de la Fontaine",
+	'Scène et sang, la vieillesse au théatre', 
+	"Le rôle des aisselles à l'heure du convexe de Peter Pan", 
+	"Les chats ont-il un maître?",
+	"Pause, Jeanne Aquilani",
+	"Le temps qu'il fera demain, Fred Tocard",
+	"C'est la télé qui l'a dit, Gina Béresina",
+	'Petit bateau, Sandra Ciruline',
+	"C'est la mer noire?, Jean de la Fontaine de Chocolat",
+	"Qui a tué Oui Oui? de Caroline Latrolingileinal",
+	"La Vallée de l'Oise des peintres paysagistes ",
+	"En Forêt de Verrières et le long de la Bièvre",
+	"La Mare aux Fées, la Malmontagne, le Carrosse et la Grotte Béatrix",
+	"Entre l'Orge et la Renarde"
+	]
+	
+	text = "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant
+	impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
+	quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen
+	de polices de texte."
+#A utiliser dans la console. (définir evts d'abor
+evts.each do |e|
 
 	mytime = Faker::Time.forward(23, :afternoon).strftime("%H:%M")
 	minutes_str = mytime[3,4].to_i
@@ -162,4 +202,44 @@ Event.each do |e|
 		e.save
 end 
 
+
+=begin
+ Event(id: integer, title: string, description: text, address: string, date: datetime, creator_id: integer,
+ created_at: datetime, updated_at: datetime, time: text, category_id: integer, image: string)
+
+=end
+
+categories =
+[
+	'Concerts',
+	'Spectacles',
+	"Sport", 
+	"Loisirs",
+	"Nature" 
+	]
+
+concerts.each do |c|
+	Event.create(title: c, description: text, address: adresses[rand(0..adresses.size)], date: Faker::Date.forward(30),
+	creator_id: rand(1..6), time: Faker::Time.forward(30, :evening), category_id: 1)
+end 
+
+spectacles.each do |c|
+	Event.create(title: c, description: text, address: adresses[rand(0..adresses.size)], date: Faker::Date.forward(30),
+	creator_id: rand(1..6), time: Faker::Time.forward(30, :evening), category_id: 2)
+end 
+
+sports.each do |c|
+	Event.create(title: c, description: text, address: adresses[rand(0..adresses.size)], date: Faker::Date.forward(30),
+	creator_id: rand(1..6), time: Faker::Time.forward(30, :evening), category_id: 3)
+end 
+
+loisirs.each do |c|
+	Event.create(title: c, description: text, address: adresses[rand(0..adresses.size)], date: Faker::Date.forward(30),
+	creator_id: rand(1..6), time: Faker::Time.forward(30, :evening), category_id: 4)
+end 
+
+nature.each do |c|
+	Event.create(title: c, description: text, address: adresses[rand(0..adresses.size)], date: Faker::Date.forward(30),
+	creator_id: rand(1..6), time: Faker::Time.forward(30, :evening), category_id: 5)
+end 
 

@@ -3,17 +3,19 @@
 // .organizer{
 // 	width: 100vw;
 // 	height: 100vh;
-// 		.organizer--username{
-// 			@include font-basics(1.7em, 150, $font--event--title);
-// 		}
-
+// 	
 .organizer{
 
 	margin: 30px 0px;
 	@include flex-center;
 	.organizer--avatar{
-			width:6vw;
+			
+			width: 70px;
 			border-radius:50%;
 			
 	}
+		.organizer--username{
+		@include font-basics(1.7em, 150, $font--event--title);
+ 		}
+
 }

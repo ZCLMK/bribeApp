@@ -15,11 +15,6 @@ ActiveRecord::Schema.define(version: 2018_06_14_015835) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attended_events_attendees", id: false, force: :cascade do |t|
-    t.bigint "attended_event_id", null: false
-    t.bigint "attendee_id", null: false
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
