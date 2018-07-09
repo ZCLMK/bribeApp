@@ -179,28 +179,6 @@ spectacles = [
 	impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
 	quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen
 	de polices de texte."
-#A utiliser dans la console. (définir evts d'abor
-evts.each do |e|
-
-	mytime = Faker::Time.forward(23, :afternoon).strftime("%H:%M")
-	minutes_str = mytime[3,4].to_i
-	
-	
-	if minutes_str >= 0 && minutes_str < 15
-		minutes_rounded = '00'
-		elsif minutes_str >= 15 && minutes_str < 30
-		minutes_rounded = '15'
-		elsif minutes_str >= 30 && minutes_str < 45
-		minutes_rounded =  '30' 
-		elsif minutes_str >= 45 && minutes_str <=59
-		minutes_rounded = '45'
-	end
-	
-	mytime[3,4] = minutes_rounded
-		
-		e.time = mytime 
-		e.save
-end 
 
 
 =begin
@@ -243,3 +221,27 @@ nature.each do |c|
 	creator_id: rand(1..6), time: Faker::Time.forward(30, :evening), category_id: 5)
 end 
 
+#A utiliser dans la console. (définir evts d'abor
+
+evts = Event.all 
+evts.each do |e|
+
+	mytime = Faker::Time.forward(23, :afternoon).strftime("%H:%M")
+	minutes_str = mytime[3,4].to_i
+	
+	
+	if minutes_str >= 0 && minutes_str < 15
+		minutes_rounded = '00'
+		elsif minutes_str >= 15 && minutes_str < 30
+		minutes_rounded = '15'
+		elsif minutes_str >= 30 && minutes_str < 45
+		minutes_rounded =  '30' 
+		elsif minutes_str >= 45 && minutes_str <=59
+		minutes_rounded = '45'
+	end
+	
+	mytime[3,4] = minutes_rounded
+		
+		e.time = mytime 
+		e.save
+end 
