@@ -20,11 +20,11 @@
 				<!-- Inscription start-->      
 				<% if user_signed_in?%>
 										<%if @event.attendees.include?(current_user) %>
-												<p>Vous êtes inscrit à cet évenement</p>
-									<%elsif current_user.id == @event.creator_id%>
+												<p><img src="https://s3-eu-west-1.amazonaws.com/zclmkavatar/images/checked.svg"height="32" width="32"> </img>Vous êtes inscrit à cet évenement</p>
+										<%elsif current_user.id == @event.creator_id%>
 												<p>Vous êtes le créateur de l'évenement</p>
 										<%else%>
-										<%= button_to "S'inscrire", action: "subscribe" %>
+										<%= link_to "Inscription", events_subscribe_path, id: "inscription" %>
 										<%end%>
 						<%end%>
 					<!-- Inscription end-->
@@ -58,38 +58,41 @@
 					
 					</div>
 			<h3 class="title">Quelques évenements par le même organisateur</h3>
+			<div class="grid--outer--show">
+				<div class="grid--wrapper">
+								<% @other_events_by_creator.each do |event| %>
+						
+						
+						<div class="event">
+							<a href="/events/<%=event.id%>">
+								<div class="event--details">
+									<h2 class="event--title"><%= event.title %></h2>
+								</a>
+										<p>Le <span class="date"><%= formatted_date(event.date)%></span>  à <span class="date"> <%= formatted_time(event.time) %></span>
+										<p><%= event.address.titleize %></p>
+	
+										<p class = "event--creator"> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
+								</div>
+	
+												<!--IMAGE -->
+								
+								<div class="event--pic">
+											<a href="/events/<%=event.id%>">							
+												<%= image_tag "#{display_default_image_show(event)}" %>
+											</a>
+								</div><!--IMAGE  fin -->
+							</div> <!-- event fin -->
+								<% end %>
+					
+					</div> <!--section-wrapper fin -->
+				</div> <!--suggestions end -->
+			</div> <!--suggestions--wrapper--end-->
+				</div>
+			</div> <!-- suggestions start-->
+				
 			</section> <!--show wrapper middle end-->
 		</div> <!-- show wrapper fin-->
-			<div class="events--suggestions"> <!-- suggestions start-->
-			
-				<div class="grid--outer">
-					<div class="grid--wrapper">
-						
-						<% @other_events_by_creator.each do |event| %>
-					
-					
-					<div class="event">
-						<a href="/events/<%=event.id%>">
-							<div class="event--details">
-								<h2 class="event--title"><%= event.title %></h2>
-							</a>
-									<p>Le <span class="date"><%= formatted_date(event.date)%></span>  à <span class="date"> <%= formatted_time(event.time) %></span>
-									<p><%= event.address.titleize %></p>
-
-									<p class = "event--creator"> Créé par <a href="/users/<%=event.creator_id%>/events">"<%= event.creator.username %>"</p></a>
-							</div>
-
-											<!--IMAGE -->
-							
-							<div class="event--pic">
-										<a href="/events/<%=event.id%>">							
-											<%= image_tag "#{display_default_image_show(event)}" %>
-										</a>
-							</div><!--IMAGE  fin -->
-						</div> <!-- event fin -->
-							<% end %>
-					</div> <!--section-wrapper fin -->
-		</div> <!--suggestions end -->
+		
 
 			<%= render  "maps" %>
 		</div>

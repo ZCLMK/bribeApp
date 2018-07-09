@@ -47,6 +47,21 @@
 					width:50%;
 					@include flex-center(column, space-around, center);
 					padding:12px;
+					a#inscription{
+						font-size: 1.2em;
+						font-weight: 200;
+						font-family: "IBM Plex Sans", sans-serif;
+						color: #fff;
+						border-radius: 5px;
+						background-color: $font--blue;
+						border: none;
+						text-decoration: none;
+						font-style: normal;
+						height: 1.5em;
+						&:hover{
+							background-color:#1d9b2a;
+						}
+					}
 				#event--address{
 					text-align:center;
 				}
@@ -94,23 +109,75 @@
 							weight: 200;
 					}
 				}
-	}
-}
-			/* Suggestions */
-			.events--suggestions {
-				width:100w;
-				margin-top: 15px;
-					.grid--outer{
-								.grid--wrapper{
-									.event {
-										.event--details {
-								background-color: #fff
+			.grid--outer--show{
+					@include flex-center;
+				.grid--wrapper{
+					margin-top:30px;
+					display:grid;
+					grid-template-columns: repeat(auto-fill, minmax(215px,1fr));
+					grid-template-rows: repeat(auto-fit);
+					grid-row-gap: 20px;
+					grid-column-gap:35px;
+					z-index: 1;
+								.event {
+					
+						height: 215px;
+						display: block;
+						overflow-y: hidden;
+						overflow-x: hidden;
+						border-radius: 7px;
+						margin: 5px 5px;
+					/*max-width?*/
+						.event--pic {
+								height:60%;
+							img {
+								width: 100%;
+								height: 100%;
+							}
+						}
+						.event--details {
+							background-color: $bg--primary;
+							display: flex;
+							flex-direction: column;
+							align-items: flex-start;
+							padding: .7em;
+							text-align: justify;
+							height: 40%;
+							a{
+								line-height:.9em;	
+							}
+							p{
+								line-height: 1em;
+							}
+								.event--adress{
+									line-height:.65em;
+									color:green;
+								}
+							@include font-basics(.8em, 200, $font--event--creator, black);
+							.date{
+									@include font-basics(.95em, 600, $font--event--creator, black);
+							}
+								.event--creator {
+									a{
+										@include font-basics(.9em, 400, $font--event--title, $font--blue);
+									}
+								}
+							
+						}
+								color:#fff;
+							
+							.event--title {
+								@include font-basics(1.25em, 150, $event--title--font,black);
+							}
 						}
 					}
-			  }
+				}
 			}
 		}
-}
+	}
+			/* Suggestions */
+
+
 
 /* ------------------MEDIA QUERIES ------------------------*/
 
@@ -169,15 +236,35 @@ and (max-width: 780px){
 					}
 					.event--info{
 						width: 100%;
-						@include flex-center;
-						
-						@include flex-center(column, space-around, flex-start);
+						@include flex-center(column, center, flex-start);
 						.show--event--title{
 							font-size: 2em;
 						}
 					}
 				}
-			}
+		}
+	}
+}
+@media screen and (min-width: 780px){
+	 .content--wrapper{
+			padding: 0px;
+				.show--wrapper{
+					width:90%;				
+					
+					.show--wrapper--top{
+					@include flex-center;
+					.event--picture{
+						width:60%;
+					}
+					.event--info * {
+						width: 100%;
+						@include flex-center(column, center, flex-start);
+						.show--event--title{
+							font-size: 2em;
+						}
+					}
+				}
+		}
 	}
 }
 /*@media screen and (min-width: 700px)

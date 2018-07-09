@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'users/sign_out' => 'home#index'
   #get 'events/:id' => 'events#show'
   #get 'events/new' => 'events#new'
-  post 'events/:id/subscribe' => 'events#subscribe'
+  get 'events/:id/subscribe' => 'events#subscribe', as: :events_subscribe
   get 'events/category/:id' => "events#category"
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

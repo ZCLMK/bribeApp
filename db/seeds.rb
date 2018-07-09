@@ -245,3 +245,5 @@ evts.each do |e|
 		e.time = mytime 
 		e.save
 end 
+
+# inscrire tout monde aux évenements de tout le monde.

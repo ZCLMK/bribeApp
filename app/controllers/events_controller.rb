@@ -5,9 +5,9 @@ class EventsController < ApplicationController
   	before_action :weekend, only:[:index]
   
   def index
-    	@users = User.all
+    @users = User.all
 		@events = Event.order('date asc')
-		@concerts = Event.where(category_id: 1).limit(3)
+		@concerts = Event.where(category_id: 1).limit(4)
   end
   
   def show
@@ -77,12 +77,12 @@ class EventsController < ApplicationController
 	events = Event.all 
 	@weekend = []
 	events.each do |e|
-		if e.date.wday == 6 || e.date.wday ==7
+		if (e.date.wday == 6 || e.date.wday ==7) && (e.date < Date.today + 7)
 			@weekend << e 
 		end 
 	end
 	@weekend
-end 
+  end 
 end
 
 
