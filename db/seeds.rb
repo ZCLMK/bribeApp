@@ -127,7 +127,7 @@ loisirs = [ #46
 	"Débat, comment mobiliser les français",
 	]
 	
-nature = [
+nature = [#19
 	"Sensibilisation aux recyclage", 
 	"Balade en forêt",
 	"Cueillette aux champignons",
@@ -148,7 +148,7 @@ nature = [
 	"La Forêt de Carnelle à partir de Viarmes",
 	"La Vallée de l'Oise des peintres paysagistes"]
 	
-spectacles = [
+spectacles = [#24
 	"Les fourberies de Scapin",
 	"Saigon de Jean Bikutsi",
 	'Sliders mondes parallèles',
@@ -198,27 +198,27 @@ categories =
 
 concerts.each do |c|
 	Event.create(title: c, description: text, address: adresses[rand(0..adresses.size)], date: Faker::Date.forward(30),
-	creator_id: rand(1..6), time: Faker::Time.forward(30, :evening), category_id: 1)
+	creator_id: rand(1...4), time: Faker::Time.forward(30, :evening), category_id: 1)
 end 
 
 spectacles.each do |c|
 	Event.create(title: c, description: text, address: adresses[rand(0..adresses.size)], date: Faker::Date.forward(30),
-	creator_id: rand(1..6), time: Faker::Time.forward(30, :evening), category_id: 2)
+	creator_id: rand(1...4), time: Faker::Time.forward(30, :evening), category_id: 2)
 end 
 
 sports.each do |c|
 	Event.create(title: c, description: text, address: adresses[rand(0..adresses.size)], date: Faker::Date.forward(30),
-	creator_id: rand(1..6), time: Faker::Time.forward(30, :evening), category_id: 3)
+	creator_id: rand(1...4), time: Faker::Time.forward(30, :evening), category_id: 3)
 end 
 
 loisirs.each do |c|
 	Event.create(title: c, description: text, address: adresses[rand(0..adresses.size)], date: Faker::Date.forward(30),
-	creator_id: rand(1..6), time: Faker::Time.forward(30, :evening), category_id: 4)
+	creator_id: rand(1...4), time: Faker::Time.forward(30, :evening), category_id: 4)
 end 
 
 nature.each do |c|
 	Event.create(title: c, description: text, address: adresses[rand(0..adresses.size)], date: Faker::Date.forward(30),
-	creator_id: rand(1..6), time: Faker::Time.forward(30, :evening), category_id: 5)
+	creator_id: rand(1...4), time: Faker::Time.forward(30, :evening), category_id: 5)
 end 
 
 #A utiliser dans la console. (définir evts d'abor
