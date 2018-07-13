@@ -38,6 +38,7 @@
 				.event--picture{
 						width:50%;
 						border-radius:30px;
+						@include flex-center;
 					img{
 						width:100%;
 						border-radius: 1.5%;
@@ -255,6 +256,7 @@ and (max-width: 780px){
 					@include flex-center;
 					.event--picture{
 						width:60%;
+						
 					}
 					.event--info * {
 						width: 100%;
